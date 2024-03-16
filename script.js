@@ -22,9 +22,13 @@ function navbarProfiles() {
     profileList.innerHTML = "";
     users.map((user) => {
       const userItem = document.createElement("li");
+      const iconCheck = document.createElement("img");
+
       userItem.innerText = user;
       userItem.classList.add("profile");
+      iconCheck.setAttribute("src", "./assets/icons/check.svg");
 
+      userItem.appendChild(iconCheck);
       profileList.appendChild(userItem);
     });
   }
@@ -111,73 +115,6 @@ function showProfileOptions() {
   });
 }
 
-function findingUserID(nome) {
-  for (let i = 0; i < monthlySpending.length; i++) {
-    if (monthlySpending[i].nome === nome) {
-      return i;
-    } else {
-      return -1;
-    }
-  }
-}
-
-function registerDebts() {
-  const debtName = document.getElementById("debt-name").value;
-  const debtValue = document.getElementById("debt-value").value;
-
-  let gastoMensal = 0;
-
-  const userId = findingUserID(selectedProfile.dataset.user);
-
-  console.log(userId);
-
-  // TODO organizar essa estrutura de dados
-
-  if (userId >= 0) {
-    monthlySpending[userId].gastos.push({
-      nomeDoGasto: debtName,
-      value: parseFloat(debtValue),
-    });
-  } else {
-    monthlySpending.pop({
-      nome: selectProfile.dataset.user,
-      gastos: [
-        {
-          nomeDoGasto: debtName,
-          value: parseFloat(debtValue),
-        },
-      ],
-      gastoMensal: 0,
-      gastoFixo: 0,
-      parcelamento: 0,
-      cofrinho: 0,
-    });
-  }
-}
-
-function showMonthlySpending() {
-  const gastoMensalText = document.querySelector(".card p");
-
-  const idUsuario = findingUserID(selectedProfile.dataset.user);
-  const debtMonthly = monthlySpending[idUsuario].gastoMensal;
-
-  console.log(idUsuario);
-
-  const debtFormated = debtMonthly.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
-
-  gastoMensalText.innerText = debtFormated;
-}
-
 navbarProfiles();
 
 selectProfile.addEventListener("click", showProfileOptions);
-
-formDebt.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  registerDebts();
-  showMonthlySpending();
-});
