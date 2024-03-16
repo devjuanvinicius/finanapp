@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinanApp</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script type="module" src="script.js" defer></script>
+</head>
+<body class="body-blur">
+  <div id="blur-div"></div>
+
+  <nav>
+    <div class="select">
+      <div class="select-profile current-profile" id="select-profile">
+        <span id="selected-profile"></span>
+        <i data-lucide="chevrons-up-down"></i>
+      </div>
+
+      <div class="profile-options" id="profile-options">
+        <h3>Perfis</h3>
+        <hr>
+
+        <ul class="profiles" id="list-profiles"></ul>
+
+        <hr>
+
+        <button id="btn-add-profile" class="add-profile">
+          <i data-lucide="circle-plus"></i>
+          Adicionar novo perfil
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="register-dialog">
+    <h2>Cadastre um novo usuario</h2>
+
+    <i data-lucide="x" id="close-dialog"></i>
+
+    <form id="form-new-user">
+      <label for="new-user">Digite o nome do usuario</label>
+      <input type="text" placeholder="Ricardo Martins" id="new-user">
+
+      <input type="submit" value="Cadastrar"></input>
+    </form>
+  </section>
+
+  <main>
+    <h1>Dashboard</h1>
+
+    <div class="cards">
+      <div class="card">
+        <div class="title">
+          <h2>Gasto mensal</h2>
+          <i data-lucide="dollar-sign" class="icon-card"></i>
+        </div>
+
+        <p>R$ 0,00</p>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <h2>Gasto fixo</h2>
+          <i data-lucide="barcode"  class="icon-card"></i>
+        </div>
+
+        <p>R$ 0,00</p>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <h2>Parcelamento</h2>
+          <i data-lucide="credit-card" class="icon-card"></i>
+        </div>
+
+        <p>R$ 0,00</p>
+      </div>
+
+      <div class="card">
+        <div class="title">
+          <h2>Cofrinho</h2>
+          <i data-lucide="piggy-bank" class="icon-card"></i>
+        </div>
+
+        <p>R$ 0,00</p>
+      </div>
+    </div>
+
+    <div class="main-cards">
+      <div class="card-register-new-value">
+        <h2>Cadastre um gasto</h2>
+
+        <form id="form-debt">
+          <div class="debt-infos">
+            <label for="debt-name">Nome da divida</label>
+            <input type="text" id="debt-name" placeholder="Faculdade">
+          </div>
+
+          <div class="debt-infos">
+            <label for="debt-value">Valor da divida</label>
+            <input type="number" id="debt-value" placeholder="R$ 540,00">
+          </div>
+
+          <input type="submit" value="Cadastrar gasto"></input>
+        </form>
+      </div>
+      <div class="alguma-coisa">
+      </div>
+    </div>
+  </main>
+</body>
+</html>
