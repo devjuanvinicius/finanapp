@@ -29,14 +29,6 @@ nav {
   border-bottom: 1px solid var(--border-color);
 }
 
-[data-lucide=bird],
-[data-lucide=chevrons-up-down],
-[data-lucide=cat] {
-  width: 1rem;
-  height: 1rem;
-  color: var(--white-color);
-}
-
 .select {
   width: 13%;
   position: relative;
@@ -58,6 +50,11 @@ nav {
 .select-profile span {
   color: var(--white-color);
   font-weight: 700;
+}
+.select-profile [data-lucide=chevrons-up-down] {
+  color: var(--white-color);
+  width: 1rem;
+  height: 1rem;
 }
 
 .select-profile:hover {
@@ -262,6 +259,11 @@ h1 {
 }
 .debt-infos #debt-value {
   appearance: textfield;
+}
+.debt-infos #debt-name:disabled,
+.debt-infos #debt-value:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 input[type=submit] {

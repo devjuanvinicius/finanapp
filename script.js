@@ -3,9 +3,23 @@ lucide.createIcons();
 const selectProfile = document.getElementById("select-profile");
 const formDebt = document.getElementById("form-debt");
 const selectedProfile = document.getElementById("selected-profile");
+const inputDebtName = document.getElementById("debt-name");
+const inputDebtValue = document.getElementById("debt-value");
 
-const users = [];
+const users = []; // "Juan", "Vera"
 const monthlySpending = [];
+
+const arr = {
+  user: "juan",
+  gastos: {
+    name: "faculdade",
+    value: 340,
+    type: "parcelado" // parcelado ou fixo
+  },
+  gastoMensal: 0,
+  gastoFixo: 0,
+  cofrinho: 0
+}
 
 function navbarProfiles() {
   if (users.length > 0) {
@@ -25,6 +39,7 @@ function navbarProfiles() {
       const iconCheck = document.createElement("img");
 
       userItem.innerText = user;
+      userItem.dataset.user = user;
       userItem.classList.add("profile");
       iconCheck.setAttribute("src", "./assets/icons/check.svg");
 
@@ -41,15 +56,21 @@ function navbarProfiles() {
     const selectContent = document.getElementById("profile-options");
     const registerNewUserForm = document.getElementById("form-new-user");
     const closeDialogButton = document.getElementById("close-dialog");
+    const inputDebtName = document.getElementById("debt-name");
+    const inputDebtValue = document.getElementById("debt-value");
+
+    inputDebtName.removeAttribute("disabled", "")
+    inputDebtValue.removeAttribute("disabled", "")
 
     function closeDialog() {
       registerNewUserDialog.classList.remove("register-dialog-active");
       divBlur.classList.remove("blur");
+
+      disableInputs();
     }
 
     function deleteErrorMessage() {
-      const existingErrorMessages =
-        registerNewUserForm.querySelectorAll("span");
+      const existingErrorMessages = registerNewUserForm.querySelectorAll("span");
       existingErrorMessages.forEach((span) => span.remove());
     }
 
@@ -60,9 +81,10 @@ function navbarProfiles() {
     selectContent.classList.remove("active");
 
     closeDialogButton.addEventListener("click", closeDialog);
-
+    
     registerNewUserForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      
       const userName = document.getElementById("new-user").value;
 
       const verifyUserInArray = users.indexOf(userName);
@@ -84,8 +106,6 @@ function navbarProfiles() {
       }
     });
   });
-
-  console.log(users);
 }
 
 function showProfileOptions() {
@@ -110,11 +130,32 @@ function showProfileOptions() {
       });
 
       profile.classList.add("selected-profile");
-      showMonthlySpending();
+      disableInputs();
     });
   });
 }
 
+function disableInputs() {
+  if(users.length <= 0){
+    inputDebtName.setAttribute("disabled", "")
+    inputDebtValue.setAttribute("disabled", "")
+  } else{
+    inputDebtName.removeAttribute("disabled", "")
+    inputDebtValue.removeAttribute("disabled", "")
+  }
+}
+
+function registerNewDebt() {
+  const verifyUserInArray = users.indexOf(selectedProfile.value)
+}
+
+disableInputs();
 navbarProfiles();
 
 selectProfile.addEventListener("click", showProfileOptions);
+
+formDebt.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  
+})

@@ -54,6 +54,12 @@ nav {
     color: var(--white-color);
     font-weight: 700;
   }
+
+  [data-lucide="chevrons-up-down"]{
+    color: var(--white-color);
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 .select-profile:hover {
@@ -277,6 +283,12 @@ h1 {
 
   #debt-value{
     appearance: textfield;
+  }
+
+  #debt-name:disabled,
+  #debt-value:disabled{
+    opacity: .5;
+    cursor: not-allowed;
   }
 }
 
