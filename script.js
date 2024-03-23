@@ -7,19 +7,21 @@ const inputDebtName = document.getElementById("debt-name");
 const inputDebtValue = document.getElementById("debt-value");
 
 const users = []; // "Juan", "Vera"
-const monthlySpending = [];
-
-const arr = {
-  user: "juan",
-  gastos: {
-    name: "faculdade",
-    value: 340,
-    type: "parcelado" // parcelado ou fixo
-  },
-  gastoMensal: 0,
-  gastoFixo: 0,
-  cofrinho: 0
-}
+const monthlySpending = [
+  {
+    user: "Juan",
+    gastos: [
+      {
+        name: "faculdade",
+        value: 340,
+        type: "parcelado" // parcelado ou fixo
+      }
+    ],
+    gastoMensal: 0,
+    gastoFixo: 0,
+    cofrinho: 0
+  }
+];
 
 function navbarProfiles() {
   if (users.length > 0) {
@@ -146,7 +148,31 @@ function disableInputs() {
 }
 
 function registerNewDebt() {
-  const verifyUserInArray = users.indexOf(selectedProfile.value)
+  const findUser = monthlySpending.find((item) => {
+    return item.user === selectedProfile.dataset.user;  
+  })
+ 
+  if(findUser){ // Se achar cai aqui
+    findUser.gastos.push({
+      name: inputDebtName.value,
+      value: parseFloat(inputDebtValue.value)
+    })
+
+    let valorMensal = 0;
+
+    findUser.gastos.forEach((debt) => {
+      valorMensal += debt.value;
+    })
+    
+    findUser.gastoMensal = valorMensal;
+
+    
+
+    console.log(monthlySpending);
+    console.log(valorMensal);
+  } else{
+    console.log("naum")
+  }
 }
 
 disableInputs();
@@ -157,5 +183,5 @@ selectProfile.addEventListener("click", showProfileOptions);
 formDebt.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  
+  registerNewDebt();
 })

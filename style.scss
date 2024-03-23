@@ -286,9 +286,75 @@ h1 {
   }
 
   #debt-name:disabled,
-  #debt-value:disabled{
+  #debt-value:disabled,
+  #btn-register-new-debt:disabled{
     opacity: .5;
     cursor: not-allowed;
+  }
+}
+
+#debt-value:focus{
+  content: "R$ ";
+}
+
+.debt-type{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  color: var(--white-color);
+}
+
+.debt-radio-selection{
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 60%;
+
+  color: var(--white-color);
+
+  input[type="radio"]{
+    appearance: none;
+
+    border: 1px solid var(--white-color);
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: #09090b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+  }
+  
+  input[type="radio"]::before{
+    content: "";
+    background-color: var(--white-color);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 100ms ease-in-out;
+  }
+
+  input[type="radio"]:checked::before{
+    opacity: 1;
+  }
+
+  div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.input-parcelas{
+  width: 40%;
+
+  input{
+    appearance: textfield;
   }
 }
 

@@ -104,7 +104,25 @@
             <input type="number" id="debt-value" placeholder="R$ 540,00">
           </div>
 
-          <input type="submit" value="Cadastrar gasto"></input>
+          <div class="debt-type">
+            <div class="debt-radio-selection">
+              <div>
+                <input type="radio" name="type" id="fixo" value="fixo" checked>
+                <label for="fixo">Fixo</label>
+              </div>
+              <div>
+                <input type="radio" name="type" id="parcelado" value="parcelado">
+                <label for="parcelado">Parcelado</label>
+              </div>
+            </div>
+
+            <div class="input-parcelas">
+              <label for="parcelas">Total de parcelas</label>
+              <input type="number" name="" id="parcelas">
+            </div>
+          </div>
+
+          <input type="submit" value="Cadastrar gasto" id="btn-register-new-debt"></input>
         </form>
       </div>
       
