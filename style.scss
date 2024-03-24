@@ -1,3 +1,6 @@
+// TODO Organizar melhor em menos linhas a questão do input disabled, usar as mesmas linhas de códigos para todos as tags
+
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 :root {
@@ -264,6 +267,7 @@ h1 {
     background-color: transparent;
     padding: 10px;
     color: var(--white-color);
+    padding: 10px;
 
     border: 1px solid var(--border-color);
     border-radius: 5px;
@@ -284,23 +288,22 @@ h1 {
   #debt-value{
     appearance: textfield;
   }
-
-  #debt-name:disabled,
-  #debt-value:disabled,
-  #btn-register-new-debt:disabled{
-    opacity: .5;
-    cursor: not-allowed;
-  }
 }
 
-#debt-value:focus{
-  content: "R$ ";
+#debt-name:disabled,
+#debt-value:disabled,
+#btn-register-new-debt:disabled,
+.input-parcelas input:disabled,
+.debt-radio-selection input[type="radio"]:disabled{
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .debt-type{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 
   color: var(--white-color);
@@ -325,7 +328,10 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;    
+
+    cursor: pointer;
   }
+  
   
   input[type="radio"]::before{
     content: "";
@@ -336,6 +342,10 @@ h1 {
     position: absolute;
     opacity: 0;
     transition: all 100ms ease-in-out;
+  }
+  
+  input[type="radio"]:disabled::before{
+    opacity: 0  !important;
   }
 
   input[type="radio"]:checked::before{
@@ -350,12 +360,27 @@ h1 {
   }
 }
 
+.debt-radio-selection:has(input[type="radio"]:disabled) label{
+  cursor: not-allowed;
+}
+
 .input-parcelas{
   width: 40%;
 
   input{
     appearance: textfield;
+    background-color: transparent;
+    color: var(--white-color);
+    padding: 10px;
+    margin-top: 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
   }
+}
+
+.input-parcelas:has(input:disabled) label{
+  cursor: not-allowed;
 }
 
 input[type="submit"] {

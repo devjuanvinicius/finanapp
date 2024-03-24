@@ -244,6 +244,7 @@ h1 {
   background-color: transparent;
   padding: 10px;
   color: var(--white-color);
+  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 5px;
 }
@@ -260,21 +261,21 @@ h1 {
 .debt-infos #debt-value {
   appearance: textfield;
 }
-.debt-infos #debt-name:disabled,
-.debt-infos #debt-value:disabled,
-.debt-infos #btn-register-new-debt:disabled {
+
+#debt-name:disabled,
+#debt-value:disabled,
+#btn-register-new-debt:disabled,
+.input-parcelas input:disabled,
+.debt-radio-selection input[type=radio]:disabled {
   opacity: 0.5;
   cursor: not-allowed;
-}
-
-#debt-value:focus {
-  content: "R$ ";
 }
 
 .debt-type {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   color: var(--white-color);
 }
@@ -296,6 +297,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .debt-radio-selection input[type=radio]::before {
   content: "";
@@ -307,6 +309,9 @@ h1 {
   opacity: 0;
   transition: all 100ms ease-in-out;
 }
+.debt-radio-selection input[type=radio]:disabled::before {
+  opacity: 0 !important;
+}
 .debt-radio-selection input[type=radio]:checked::before {
   opacity: 1;
 }
@@ -317,11 +322,25 @@ h1 {
   gap: 10px;
 }
 
+.debt-radio-selection:has(input[type=radio]:disabled) label {
+  cursor: not-allowed;
+}
+
 .input-parcelas {
   width: 40%;
 }
 .input-parcelas input {
   appearance: textfield;
+  background-color: transparent;
+  color: var(--white-color);
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.input-parcelas:has(input:disabled) label {
+  cursor: not-allowed;
 }
 
 input[type=submit] {
