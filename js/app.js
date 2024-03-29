@@ -6,6 +6,8 @@ lucide.createIcons();
 
 const selectProfile = document.getElementById("select-profile");
 const formDebt = document.getElementById("form-debt");
+const users = []; // "Juan", "Vera"
+export { users }
 
 disableInputs();
 navbarProfiles();

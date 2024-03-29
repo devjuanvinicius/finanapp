@@ -1,8 +1,8 @@
 import { disableInputs } from "./disableInputs.js";
+import { users } from "./app.js";
 
 export function navbarProfiles() {
   const selectedProfile = document.getElementById("selected-profile");
-  const users = []; // "Juan", "Vera"
   
   if (users.length > 0) {
     selectedProfile.innerText = users[0];

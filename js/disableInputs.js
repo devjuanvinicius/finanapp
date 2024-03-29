@@ -1,11 +1,14 @@
+import { users } from "./app.js";
+
 export function disableInputs() {
+  console.log(users)
   const inputDebtName = document.getElementById("debt-name");
   const inputDebtValue = document.getElementById("debt-value");
   const inputType = document.querySelectorAll('.debt-radio-selection input[type="radio"');
   const inputParcelas = document.getElementById("parcelas");
-  const users = []; // "Juan", "Vera"
-
-  if(users.length <= 0){
+  const selectedProfile = document.querySelector("#selected-profile");
+  
+  if(users.length <= 0 || selectedProfile.hasAttribute("data-user") === false ){
     inputDebtName.setAttribute("disabled", "")
     inputDebtValue.setAttribute("disabled", "")
     inputType[0].setAttribute("disabled", "")
