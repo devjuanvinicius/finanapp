@@ -1,5 +1,5 @@
 import { disableInputs } from "./disableInputs.js";
-import { navbarProfiles } from "./showNavbarProfiles.js";
+import { navbarProfiles } from "./navbar/showNavbarProfiles.js";
 import { showProfileOptions } from "./showProfileOptions.js";
 import { registerNewDebt } from "./registerNewDebt.js";
 lucide.createIcons();

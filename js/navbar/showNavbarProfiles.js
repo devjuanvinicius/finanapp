@@ -1,5 +1,6 @@
-import { disableInputs } from "./disableInputs.js";
-import { users } from "./app.js";
+import { disableInputs } from "../disableInputs.js";
+import { showProfileInNav } from "./showProfileInNav.js";
+import { users } from "../app.js";
 
 export function navbarProfiles() {
   const selectedProfile = document.getElementById("selected-profile");
@@ -11,24 +12,7 @@ export function navbarProfiles() {
     selectedProfile.innerText = "Adicionar novo perfil";
   }
 
-  const profileList = document.getElementById("list-profiles");
   const btnAddProfile = document.getElementById("btn-add-profile");
-
-  function showProfileInNav() {
-    profileList.innerHTML = "";
-    users.map((user) => {
-      const userItem = document.createElement("li");
-      const iconCheck = document.createElement("img");
-
-      userItem.innerText = user;
-      userItem.dataset.user = user;
-      userItem.classList.add("profile");
-      iconCheck.setAttribute("src", "./assets/icons/check.svg");
-
-      userItem.appendChild(iconCheck);
-      profileList.appendChild(userItem);
-    });
-  }
 
   showProfileInNav();
 
