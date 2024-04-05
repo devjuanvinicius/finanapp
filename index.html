@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FinanApp</title>
   <link rel="stylesheet" href="style/style.css">
-  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -99,29 +99,29 @@
         <form id="form-debt">
           <div class="debt-infos">
             <label for="debt-name">Nome da divida</label>
-            <input type="text" id="debt-name" placeholder="Faculdade">
+            <input type="text" id="debt-name" placeholder="Faculdade" required>
           </div>
 
           <div class="debt-infos">
             <label for="debt-value">Valor da divida</label>
-            <input type="number" id="debt-value" placeholder="R$ 540,00" class="debt-value">
+            <input type="number" id="debt-value" placeholder="R$ 540,00" class="debt-value" required>
           </div>
 
           <div class="debt-type">
             <div class="debt-radio-selection">
               <div>
-                <input type="radio" name="type" id="fixo" value="fixed">
+                <input type="radio" name="type" id="fixo" value="fixed" required>
                 <label for="fixo">Fixo</label>
               </div>
               <div>
-                <input type="radio" name="type" id="parcelado" value="parcelado">
+                <input type="radio" name="type" id="parcelado" value="parcelado" required>
                 <label for="parcelado">Parcelado</label>
               </div>
             </div>
 
             <div class="input-parcelas">
               <label for="parcelas">Total de parcelas</label>
-              <input type="number" name="" id="parcelas" placeholder="5">
+              <input type="number" name="" id="parcelas" placeholder="5" required>
             </div>
           </div>
 

@@ -1,45 +1,78 @@
-export function registerNewDebt() { 
-  const inputDebtName = document.getElementById("debt-name");
-  const inputDebtValue = document.getElementById("debt-value");
+import { monthlySpending, clearInputs } from "./app.js";
 
-  const monthlySpending = [
-    {
-      user: "Juan",
+export function registerNewDebt() {
+  const selectedProfile = document.getElementById("selected-profile");
+  let inputValue;
+  let installmentsValues;
+  const inputDebtName = document.getElementById("debt-name").value;
+  const inputDebtValue = document.getElementById("debt-value").value;
+  const totalInstallments = document.getElementById("parcelas").value;
+
+  document.querySelectorAll("input[name='type']").forEach((item) => {
+    if (item.checked) {
+      inputValue = item.value;
+    }
+  });
+
+  const findUserId = () => {
+    monthlySpending.findIndex((item) => {
+      return item.user === selectedProfile.dataset.user;
+    })
+  }
+
+  if (inputValue === "parcelado") {
+    installmentsValues = inputDebtValue / totalInstallments;
+    console.log(installmentsValues);
+  }
+
+  function calculateGastoMensal(){
+    monthlySpending[findUserId].gastos.map((gasto) => {
+      monthlySpending[findUserId].gastoMensal += gasto.value;
+      console.log(monthlySpending[findUserId].gastoMensal);
+    })
+  }
+  
+  console.log(findUserId);
+
+  if (findUserId === -1) {
+    monthlySpending.push({
+      user: selectedProfile.dataset.user,
       gastos: [
         {
-          name: "faculdade",
-          value: 340,
-          type: "parcelado", // parcelado ou fixo
-          installments: 0
-        }
+          name: inputDebtName,
+          value: inputDebtValue,
+          type: inputValue, // parcelado ou fixo
+          installments: totalInstallments, // total prestações
+          installmentsValues: installmentsValues, // valor parcelado
+        },
       ],
-      gastoMensal: 0,
-      gastoFixo: 0,
-      cofrinho: 0
-    }
-  ];
-
-  const findUser = monthlySpending.find((item) => {
-    return item.user === selectedProfile.dataset.user;  
-  })
- 
-  if(findUser){ // Se achar cai aqui
-    findUser.gastos.push({
-      name: inputDebtName.value,
-      value: parseFloat(inputDebtValue.value)
-    })
-
-    let valorMensal = 0;
-
-    findUser.gastos.forEach((debt) => {
-      valorMensal += debt.value;
-    })
-    
-    findUser.gastoMensal = valorMensal;
-
-    console.log(monthlySpending);
-    console.log(valorMensal);
-  } else{
-    console.log("naum")
+    });
+    console.table(monthlySpending);
+  } else {
+    console.log(findUserId)
+    monthlySpending[findUserId].gastos.push({
+      name: inputDebtName,
+      value: inputDebtValue,
+      type: inputValue, // parcelado ou fixo
+      installments: totalInstallments, // total prestações
+      installmentsValues: installmentsValues, // valor parcelado
+    });
   }
+
+  findUserId();
+  calculateGastoMensal();
+  clearInputs();
 }
+
+//       gastos: [
+//         {
+//           name: inputDebtName,
+//           value: inputDebtValue,
+//           type: inputValue, // parcelado ou fixo
+//           installments: totalInstallments, // total prestações
+//           installmentsValues: installmentsValues, // valor parcelado
+//         },
+//       ],
+//       gastoMensal: 0,
+//       gastoFixo: 0,
+//       cofrinho: 0,
