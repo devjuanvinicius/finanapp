@@ -478,6 +478,10 @@ section{
     input[type="submit"]:hover{
       background-color: #e0e0e0;
     }
+
+    input[type="number"]{
+      appearance: textfield;
+    }
   }
 }
 

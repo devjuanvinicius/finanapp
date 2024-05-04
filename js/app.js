@@ -1,13 +1,15 @@
 lucide.createIcons();
+export { users, monthlySpending, selectProfile, clearInputs };
+
 import { disableInputs } from "./disableInputs.js";
 import { navbarProfiles } from "./navbar/showNavbarProfiles.js";
 import { showProfileOptions } from "./showProfileOptions.js";
-import { registerNewDebt } from "./registerNewDebt.js";
-export { users, monthlySpending, selectProfile, clearInputs };
+import { registerNewDebt } from "./registerDebt/registerNewDebt.js";
 
 const selectProfile = document.getElementById("select-profile");
 const formDebt = document.getElementById("form-debt");
-const users = []; // "Juan", "Vera"
+
+const users = []; 
 const monthlySpending = [];
 
 function clearInputs() {
