@@ -9,6 +9,14 @@ export function addProfile(event) {
   const salary = document.getElementById("user-salary").value;
   const verifyUserInArray = users.indexOf(userName);
 
+  const usersData = {
+    user: userName,
+    salary: salary,
+    gastos: [],
+    gastoMensal: 0,
+    gastoFixo: 0,
+  };
+
   deleteErrorMessage();
 
   if (verifyUserInArray !== -1) {
@@ -18,18 +26,10 @@ export function addProfile(event) {
 
     registerNewUserForm.appendChild(errorMessage);
   } else {
-    console.log(userName, salary);
-
-    const usersData = {
-      user: userName,
-      salary: salary,
-    };
-
     users.push(userName);
     monthlySpending.push(usersData);
-    
-    console.log(users)
-    console.log(monthlySpending);
+
+    console.table(monthlySpending)
 
     closeDialog();
     showProfileInNav();

@@ -1,57 +1,32 @@
 import { monthlySpending, clearInputs} from "../app.js";
 import { debtSum } from "./debtSum.js";
-import { findingId } from "./findingId.js";
 
-export const selectedProfile = document.getElementById("selected-profile");
+export const findingId = (selectedUser) => {
+  const foundUser = monthlySpending.find((user) => user.user === selectedUser)
+  return monthlySpending.indexOf(foundUser);
+}
 
-export function registerNewDebt() {
-  let inputValue;
-  let installmentsValues;
+export function registerNewDebt(event) {
+  event.preventDefault();
+
+  const selectedProfile = document.getElementById("selected-profile").dataset.user;
+  let installmentsValues = 0;
   const inputDebtName = document.getElementById("debt-name").value;
   const inputDebtValue = document.getElementById("debt-value").value;
   const totalInstallments = document.getElementById("parcelas").value;
+  const typeOfDebt = document.querySelector('input[type="radio"]:checked').value;
 
-  document.querySelectorAll("input[name='type']").forEach((item) => {
-    if (item.checked) {
-      inputValue = item.value;
-    }
-  });
-
-  if (inputValue === "parcelado") {
+  if (typeOfDebt === "parcelado") {
     installmentsValues = inputDebtValue / totalInstallments;
-    console.log(installmentsValues);
   }
 
-  let userId = findingId(selectedProfile);
-
-  if (userId === -1) {
-    monthlySpending.push({
-      user: selectedProfile.dataset.user,
-      gastos: [
-        {
-          name: inputDebtName,
-          value: parseFloat(inputDebtValue),
-          type: inputValue, // parcelado ou fixo
-          installments: totalInstallments, // total prestações
-          installmentsValues: installmentsValues, // valor parcelado
-        },
-      ],
-    });
-
-    console.log(monthlySpending);
-    debtSum();
-  } else {
-    monthlySpending[userId].gastos.push([
-      {
-        name: inputDebtName,
-        value: parseFloat(inputDebtValue),
-        type: inputValue, // parcelado ou fixo
-        installments: totalInstallments, // total prestações
-        installmentsValues: installmentsValues, // valor parcelado
-      },
-    ]);
-    console.log(monthlySpending);
-    debtSum();
-  }  
+  monthlySpending[findingId(selectedProfile)].gastos.push({
+    name: inputDebtName,
+    value: parseFloat(inputDebtValue),
+    type: typeOfDebt, // parcelado ou fixo
+    installments: totalInstallments, // total prestações
+    installmentsValues: parseFloat(installmentsValues), // valor parcelado
+  })
+  console.log(monthlySpending);
   clearInputs();
 }

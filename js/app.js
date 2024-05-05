@@ -24,8 +24,4 @@ navbarProfiles();
 
 selectProfile.addEventListener("click", showProfileOptions);
 
-formDebt.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  registerNewDebt();
-});
+formDebt.addEventListener("submit", registerNewDebt);

@@ -1,12 +1,11 @@
 import { monthlySpending } from "../app.js";
-import { findingId } from "./findingId.js";
-import { selectedProfile } from "./registerNewDebt.js";
+import { findingId } from "./registerNewDebt.js";
 
 export function debtSum() {
+  const selectedProfile = document.getElementById("selected-profile");
   let gastoMensalTotal = 0;
-  let userId = findingId(selectedProfile);
-  
-  monthlySpending[findingId(userId)].gastos.forEach((gasto) => {
+
+  monthlySpending[findingId(selectedProfile)].gastos.forEach((gasto) => {
     gastoMensalTotal += gasto.value;
     console.log(gastoMensalTotal);
     return gastoMensalTotal;
