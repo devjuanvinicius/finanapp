@@ -1,5 +1,5 @@
 lucide.createIcons();
-export { users, monthlySpending, selectProfile, clearInputs, typeOfDebtInputs, clearInputType };
+export { users, monthlySpending, selectProfile, typeOfDebtInputs, clearInputs, clearInputType };
 
 import { disableInputs } from "./disableInputs.js";
 import { navbarProfiles } from "./navbar/showNavbarProfiles.js";
@@ -10,7 +10,6 @@ const selectProfile = document.getElementById("select-profile");
 const formDebt = document.getElementById("form-debt");
 const inputTotal = document.querySelector(".input-parcelas");
 const typeOfDebtInputs = document.querySelectorAll('input[type="radio"]');
-const mainCards = document.getElementById("main-cards");
 
 const users = [];
 const monthlySpending = [];
@@ -36,7 +35,6 @@ function clearInputType() {
       }
     }) 
   })
-  
 }
 
 clearInputs();

@@ -17,11 +17,11 @@ export function registerNewDebt(event) {
   const totalInstallments = document.getElementById("parcelas").value;
   let typeOfDebt = "noType";
 
-  console.log(typeOfDebtInputs);
-  console.log(typeOfDebt);
+  console.log(typeOfDebtInputs); // NENHUM CHECKED
   
   typeOfDebtInputs.forEach((input) => {
-    if(input.checked = true){
+    console.log(typeOfDebtInputs); // NENHUM CHECKED
+    if(input.checked === true){
       console.log(input);
       typeOfDebt = input.value
     }
