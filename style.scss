@@ -99,7 +99,7 @@ nav {
 }
 
 .active {
-  display: flex;
+  display: flex !important;
 }
 
 .profiles {
@@ -289,7 +289,8 @@ h1 {
 #debt-value:disabled,
 #btn-register-new-debt:disabled,
 .input-parcelas input:disabled,
-.debt-radio-selection input[type="radio"]:disabled{
+.debt-radio-selection input[type="radio"]:disabled,
+input[type="submit"]:disabled{
   opacity: .5;
   cursor: not-allowed;
 }
@@ -361,6 +362,8 @@ h1 {
 
 .input-parcelas{
   width: 40%;
+  display: none;
+  flex-direction: column;
 
   input{
     appearance: textfield;

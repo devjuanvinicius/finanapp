@@ -73,7 +73,7 @@
           <i data-lucide="dollar-sign" class="icon-card"></i>
         </div>
 
-        <p>R$ 0,00</p>
+        <p id="gasto-mensal">R$ 0,00</p>
       </div>
 
       <div class="card">
@@ -91,11 +91,11 @@
           <i data-lucide="credit-card" class="icon-card"></i>
         </div>
 
-        <p>R$ 0,00</p>
+        <p id="gasto-parcelado">R$ 0,00</p>
       </div>
     </div>
 
-    <div class="main-cards">
+    <div class="main-cards" id="main-cards">
       <div class="card-register-new-value">
         <h2>Cadastre um gasto</h2>
 
@@ -113,18 +113,18 @@
           <div class="debt-type">
             <div class="debt-radio-selection">
               <div>
-                <input type="radio" name="type" id="fixo" value="fixed" required>
+                <input type="radio" name="type" id="fixo" value="fixed">
                 <label for="fixo">Fixo</label>
               </div>
               <div>
-                <input type="radio" name="type" id="parcelado" value="parcelado" required>
+                <input type="radio" name="type" id="parcelado" value="parcelado">
                 <label for="parcelado">Parcelado</label>
               </div>
             </div>
 
             <div class="input-parcelas">
               <label for="parcelas">Total de parcelas</label>
-              <input type="number" name="" id="parcelas" placeholder="5" required>
+              <input type="number" id="parcelas" placeholder="5">
             </div>
           </div>
 

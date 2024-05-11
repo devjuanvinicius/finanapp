@@ -1,23 +1,37 @@
-import { monthlySpending, clearInputs} from "../app.js";
+import { monthlySpending, clearInputs, typeOfDebtInputs, clearInputType } from "../app.js";
+import { showValuesInScreen } from "../showValues.js";
 import { debtSum } from "./debtSum.js";
 
 export const findingId = (selectedUser) => {
-  const foundUser = monthlySpending.find((user) => user.user === selectedUser)
+  const foundUser = monthlySpending.find((user) => user.user === selectedUser);
   return monthlySpending.indexOf(foundUser);
-}
+};
 
 export function registerNewDebt(event) {
   event.preventDefault();
+  let installmentsValues = 0;
 
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
-  let installmentsValues = 0;
   const inputDebtName = document.getElementById("debt-name").value;
-  const inputDebtValue = document.getElementById("debt-value").value;
+  let inputDebtValue = document.getElementById("debt-value").value;
   const totalInstallments = document.getElementById("parcelas").value;
-  const typeOfDebt = document.querySelector('input[type="radio"]:checked').value;
+  let typeOfDebt = "noType";
 
+  console.log(typeOfDebtInputs);
+  console.log(typeOfDebt);
+  
+  typeOfDebtInputs.forEach((input) => {
+    if(input.checked = true){
+      console.log(input);
+      typeOfDebt = input.value
+    }
+  })
+  
+  console.log(typeOfDebt)
+  
   if (typeOfDebt === "parcelado") {
     installmentsValues = inputDebtValue / totalInstallments;
+    inputDebtValue = installmentsValues;
   }
 
   monthlySpending[findingId(selectedProfile)].gastos.push({
@@ -26,7 +40,11 @@ export function registerNewDebt(event) {
     type: typeOfDebt, // parcelado ou fixo
     installments: totalInstallments, // total prestações
     installmentsValues: parseFloat(installmentsValues), // valor parcelado
-  })
-  console.log(monthlySpending);
+  });
+
+  console.log(monthlySpending)
+  // debtSum();
+  showValuesInScreen();
   clearInputs();
+  clearInputType();
 }

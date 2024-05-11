@@ -15,6 +15,7 @@ export function addProfile(event) {
     gastos: [],
     gastoMensal: 0,
     gastoFixo: 0,
+    gastoParcelamento: 0,
   };
 
   deleteErrorMessage();
