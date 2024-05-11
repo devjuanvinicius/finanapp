@@ -7,6 +7,7 @@ export function addProfile(event) {
 
   const userName = document.getElementById("new-user").value;
   const salary = document.getElementById("user-salary").value;
+  const salaryInput = document.getElementById("user-salary");
   const verifyUserInArray = users.indexOf(userName);
 
   const usersData = {
@@ -23,9 +24,15 @@ export function addProfile(event) {
   if (verifyUserInArray !== -1) {
     const errorMessage = document.createElement("span");
     errorMessage.innerText = "Usuario já existente";
-    errorMessage.style.color = "#7f1d1d";
+    errorMessage.style.color = "#832021";
 
-    registerNewUserForm.appendChild(errorMessage);
+    salaryInput.insertAdjacentElement("afterend", errorMessage)
+  } else if (userName.length <= 0 || salary.length <= 0) {
+    const errorMessage = document.createElement("span");
+    errorMessage.innerText = "Por favor, preencha tanto o seu nome quanto o seu salário antes de prosseguir.";
+    errorMessage.style.color = "#832021";
+
+    salaryInput.insertAdjacentElement("afterend", errorMessage)
   } else {
     users.push(userName);
     monthlySpending.push(usersData);
