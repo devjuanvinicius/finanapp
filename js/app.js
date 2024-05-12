@@ -3,7 +3,7 @@ export { users, monthlySpending, selectProfile, typeOfDebtInputs, clearInputs, c
 
 import { disableInputs } from "./disableInputs.js";
 import { navbarProfiles } from "./navbar/showNavbarProfiles.js";
-import { showProfileOptions } from "./showProfileOptions.js";
+import { showProfileOptions } from "./navbar/showProfileOptions.js";
 import { registerNewDebt } from "./registerDebt/registerNewDebt.js";
 
 const selectProfile = document.getElementById("select-profile");
@@ -27,10 +27,8 @@ function clearInputType() {
 
     input.addEventListener("click", () => {
       if(input.checked === true && input.value === "parcelado") {
-        console.log("add")
         inputTotal.classList.add("active");
       } else {
-        console.log("remove")
         inputTotal.classList.remove("active");
       }
     }) 

@@ -186,17 +186,23 @@ h1 {
   height: 180px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  gap: 15px;
   color: var(--white-color);
-  padding: 45px 25px;
+  padding: 0 25px;
 
   border: 1px solid var(--border-color);
   border-radius: 15px;
+}
 
-  p {
-    font-size: 1.8rem;
-    font-weight: 800;
-  }
+.value{
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.subtext{
+  font-size: .9rem;
+  font-weight: 400;
 }
 
 .title {
@@ -205,8 +211,13 @@ h1 {
   justify-content: space-between;
 
   h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
+  }
+
+  span{
+    font-size: .8rem;
+    font-weight: 500;
   }
 
   .icon-card {

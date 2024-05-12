@@ -1,4 +1,5 @@
-import { disableInputs } from "./disableInputs.js";
+import { disableInputs } from "../disableInputs.js";
+import { showValuesInCard } from "../showValuesInCard.js";
 
 export function showProfileOptions() {
   const selectContent = document.getElementById("profile-options");
@@ -24,6 +25,7 @@ export function showProfileOptions() {
 
       profile.classList.add("selected-profile");
       disableInputs();
+      showValuesInCard();
     });
   });
 }

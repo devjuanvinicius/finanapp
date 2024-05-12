@@ -1,5 +1,5 @@
 import { monthlySpending, clearInputs, typeOfDebtInputs, clearInputType } from "../app.js";
-import { showValuesInScreen } from "../showValues.js";
+import { showValuesInCard } from "../showValuesInCard.js";
 import { debtSum } from "./debtSum.js";
 
 export const findingId = (selectedUser) => {
@@ -14,24 +14,20 @@ export function registerNewDebt(event) {
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
   const inputDebtName = document.getElementById("debt-name").value;
   let inputDebtValue = document.getElementById("debt-value").value;
-  const totalInstallments = document.getElementById("parcelas").value;
-  let typeOfDebt = "noType";
-
-  console.log(typeOfDebtInputs); // NENHUM CHECKED
+  const totalInstallments = isNaN(parseFloat(document.getElementById("parcelas").value)) ? 0 : parseFloat(document.getElementById("parcelas").value); 
+  //! ^ Aqui meu input está retornando um valor em string, estou transformando ele em string e caso me retorne um NaN, eu vou cadastrar como 0.
   
-  typeOfDebtInputs.forEach((input) => {
-    console.log(typeOfDebtInputs); // NENHUM CHECKED
+  let typeOfDebt = "noType"; // Por padrao ele vai ser sem nenhum tipo
+
+  typeOfDebtInputs.forEach((input) => { 
+    // vai verificar se existe algum input checked, se sim vai atribuir o valor do input a variavel typeOfDebt
     if(input.checked === true){
-      console.log(input);
       typeOfDebt = input.value
     }
   })
   
-  console.log(typeOfDebt)
-  
   if (typeOfDebt === "parcelado") {
     installmentsValues = inputDebtValue / totalInstallments;
-    inputDebtValue = installmentsValues;
   }
 
   monthlySpending[findingId(selectedProfile)].gastos.push({
@@ -42,9 +38,8 @@ export function registerNewDebt(event) {
     installmentsValues: parseFloat(installmentsValues), // valor parcelado
   });
 
-  console.log(monthlySpending)
-  // debtSum();
-  showValuesInScreen();
+  debtSum();
+  showValuesInCard();
   clearInputs();
   clearInputType();
 }

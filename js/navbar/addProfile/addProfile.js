@@ -17,6 +17,7 @@ export function addProfile(event) {
     gastoMensal: 0,
     gastoFixo: 0,
     gastoParcelamento: 0,
+    gastoParcelamentoMes: 0
   };
 
   deleteErrorMessage();
@@ -36,9 +37,7 @@ export function addProfile(event) {
   } else {
     users.push(userName);
     monthlySpending.push(usersData);
-
-    console.table(monthlySpending)
-
+    
     closeDialog();
     showProfileInNav();
   }
