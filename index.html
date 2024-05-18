@@ -38,13 +38,13 @@
     </div>
   </nav>
 
-  <section id="register-dialog">
+  <section id="register-dialog" class="dialogs">
     <h2>Cadastre um novo usuario</h2>
 
     <i data-lucide="x" id="close-dialog"></i>
 
     <form id="form-new-user">
-      <label for="new-user">Digite o nome do usuario</label>
+      <label for="new-user">Digite o nome do usuario:</label>
       <input type="text" placeholder="Ricardo Martins" id="new-user">
 
       <label for="gain-user">Informe o quanto você ganha:</label>
@@ -133,8 +133,46 @@
         </form>
       </div>
       
-      <div class="alguma-coisa">
-      </div>
+      <aside class="payments-history">
+        <h2>Historico de pagamentos</h2>
+
+        <div class="payments-list">
+          <div class="payment">
+            <div class="payment-infos">
+              <span class="payment-name">Relógio</span>
+              <span class="payment-value">R$ 100,00 - 
+                <span class="payment-installments">4x</span>
+              </span>
+            </div>
+            <i data-lucide="pen-line" class="icon"></i>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="dialogs">
+      <h2>Edição de pagamentos</h2>
+
+      <form>
+        <label for="edit-name">Edite o nome:</label>
+        <input type="text" id="edit-name" placeholder="Relógio">
+
+        <div class="edit-values">
+          <div class="edit-value">
+            <label for="edit-value">Edite o valor:</label>
+            <input type="number" id="edit-value">
+          </div>
+          <div class="edit-installments">
+            <label for="edit-installments">Edite as parcelas:</label>
+            <input type="number" id="edit-installments">
+          </div>
+        </div>
+
+        <div class="edit-btns">
+          <button class="btn-remove">Remover</button>
+          <input type="submit" value="Finalizar">
+        </div>
+      </form>
     </div>
   </main>
 </body>

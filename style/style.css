@@ -189,6 +189,7 @@ h1 {
 }
 
 .subtext {
+  color: var(--gray);
   font-size: 0.9rem;
   font-weight: 400;
 }
@@ -372,14 +373,77 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
-.alguma-coisa {
+.payments-history {
   width: 40%;
   height: 100%;
   border: 1px solid var(--border-color);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 2rem;
+}
+.payments-history h2 {
+  color: var(--white-color);
 }
 
-section {
+.payments-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crud-icon {
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.payment-name {
+  color: var(--white-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.payment-infos {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.payment-infos span {
+  color: var(--white-color);
+}
+
+.payment-value {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.payment-installments {
+  font-weight: 400;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.dialogs {
   width: 40%;
   height: 50%;
   position: absolute;
@@ -394,10 +458,10 @@ section {
   border-radius: 10px;
   border: 1px solid var(--border-color);
 }
-section h2 {
+.dialogs h2 {
   color: var(--white-color);
 }
-section [data-lucide=x] {
+.dialogs [data-lucide=x] {
   color: var(--white-color);
   height: 32px;
   width: 32px;
@@ -406,45 +470,76 @@ section [data-lucide=x] {
   right: 5%;
   cursor: pointer;
 }
-section [data-lucide=x]:hover {
+.dialogs [data-lucide=x]:hover {
   color: #e0e0e0;
 }
-section form {
+.dialogs form {
   display: flex;
   flex-direction: column;
   padding-top: 35px;
-  gap: 25px;
+  gap: 20px;
   width: 55%;
 }
-section form label {
+.dialogs form label {
   color: var(--white-color);
   font-size: 1.2rem;
 }
-section form input {
+.dialogs form input {
   height: 35px;
   background-color: transparent;
   border: 1px solid var(--border-color);
   color: var(--white-color);
   padding-left: 10px;
 }
-section form input:focus {
+.dialogs form input:focus {
   border: 1px solid var(--white-color);
 }
-section form input[type=submit] {
+.dialogs form input[type=submit], .dialogs form button {
   padding: 8px 16px;
   border-radius: 0.5rem;
-  background-color: var(--white-color);
   border: none;
-  color: #09090B;
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
 }
-section form input[type=submit]:hover {
+.dialogs form input[type=submit] {
+  background-color: var(--white-color);
+  color: #09090B;
+}
+.dialogs form button {
+  background-color: #BF2601;
+  color: var(--white-color);
+}
+.dialogs form input[type=submit]:hover {
   background-color: #e0e0e0;
 }
-section form input[type=number] {
+.dialogs form input[type=number] {
   appearance: textfield;
+}
+
+.edit-values {
+  display: flex;
+  gap: 15px;
+}
+
+.edit-value, .edit-installments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-value {
+  flex: 1;
+}
+
+.edit-installments {
+  width: 50%;
+}
+
+.edit-btns {
+  display: flex;
+  justify-content: center;
+  gap: 1.3rem;
 }
 
 .register-dialog-active {

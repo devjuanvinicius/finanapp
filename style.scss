@@ -201,6 +201,7 @@ h1 {
 }
 
 .subtext{
+  color: var(--gray);
   font-size: .9rem;
   font-weight: 400;
 }
@@ -409,14 +410,80 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-.alguma-coisa {
+.payments-history {
   width: 40%;
   height: 100%;
   border: 1px solid var(--border-color);
   border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 2rem;
+
+  h2{
+    color: var(--white-color);
+  }
 }
 
-section{
+.payments-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment{
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.crud-icon{
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.payment-name{
+  color: var(--white-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.payment-infos{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  
+  span{
+    color: var(--white-color);
+  }
+}
+
+.payment-value{
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.payment-installments{
+  font-weight: 400;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+.dialogs{
   width: 40%;
   height: 50%;
   position: absolute;
@@ -457,7 +524,7 @@ section{
     display: flex;
     flex-direction: column;
     padding-top: 35px;
-    gap: 25px;
+    gap: 20px;
     width: 55%;
 
     label{
@@ -477,16 +544,24 @@ section{
       border: 1px solid var(--white-color);
     }
 
-    input[type="submit"]{
+    input[type="submit"], button{
       padding: 8px 16px;
       border-radius: .5rem;
-      background-color: var(--white-color);
       border: none;
 
-      color: #09090B;
       font-weight: 500;
       font-size: 1rem;
       cursor: pointer;
+    }
+    
+    input[type="submit"]{
+      background-color: var(--white-color);
+      color: #09090B;
+    }
+
+    button{
+      background-color: #BF2601;
+      color: var(--white-color);
     }
 
     input[type="submit"]:hover{
@@ -497,6 +572,31 @@ section{
       appearance: textfield;
     }
   }
+}
+
+.edit-values{
+  display: flex;
+  gap: 15px;
+}
+
+.edit-value, .edit-installments{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.edit-value{
+  flex: 1;
+}
+
+.edit-installments{
+  width: 50%;
+}
+
+.edit-btns{
+  display: flex;
+  justify-content: center;
+  gap: 1.3rem;
 }
 
 .register-dialog-active{

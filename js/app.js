@@ -42,3 +42,5 @@ clearInputType();
 
 selectProfile.addEventListener("click", showProfileOptions);
 formDebt.addEventListener("submit", registerNewDebt);
+
+//! MUDAR A PALAVRA DEBITS/SPENDING PARA PAYMENTS
