@@ -1,4 +1,5 @@
 import { monthlySpending, clearInputs, typeOfDebtInputs, clearInputType } from "../app.js";
+import { showPaymentsHistory } from "../paymentsHistory/showPaymentsHistory.js";
 import { showValuesInCard } from "../showValuesInCard.js";
 import { debtSum } from "./debtSum.js";
 
@@ -40,6 +41,7 @@ export function registerNewDebt(event) {
 
   debtSum();
   showValuesInCard();
+  showPaymentsHistory(findingId(selectedProfile));
   clearInputs();
   clearInputType();
 }

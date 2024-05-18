@@ -1,6 +1,6 @@
-import { monthlySpending, users } from "../../app.js";
+import { divBlur, monthlySpending, registerNewUserDialog, registerNewUserForm, users } from "../../app.js";
 import { showProfileInNav } from "../showProfileInNav.js";
-import { closeDialog, deleteErrorMessage } from "./showDialog.js";
+import { closeDialog, deleteErrorMessage } from "../../dialogControls.js";
 
 export function addProfile(event) {
   event.preventDefault();
@@ -20,7 +20,7 @@ export function addProfile(event) {
     gastoParcelamentoMes: 0
   };
 
-  deleteErrorMessage();
+  deleteErrorMessage(registerNewUserForm);
 
   if (verifyUserInArray !== -1) {
     const errorMessage = document.createElement("span");
@@ -38,7 +38,7 @@ export function addProfile(event) {
     users.push(userName);
     monthlySpending.push(usersData);
     
-    closeDialog();
+    closeDialog(registerNewUserDialog, divBlur);
     showProfileInNav();
   }
 }

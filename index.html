@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FinanApp</title>
+  <title>FinanTrack</title>
   <link rel="stylesheet" href="style/style.css">
   <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,22 +136,14 @@
       <aside class="payments-history">
         <h2>Historico de pagamentos</h2>
 
-        <div class="payments-list">
-          <div class="payment">
-            <div class="payment-infos">
-              <span class="payment-name">Relógio</span>
-              <span class="payment-value">R$ 100,00 - 
-                <span class="payment-installments">4x</span>
-              </span>
-            </div>
-            <i data-lucide="pen-line" class="icon"></i>
-          </div>
-        </div>
+        <div class="payments-list" id="payments-list"></div>
       </aside>
     </div>
 
-    <div class="dialogs">
+    <div class="dialogs" id="payment-edit-dialog">
       <h2>Edição de pagamentos</h2>
+
+      <i data-lucide="x" id="close-edit-dialog"></i>
 
       <form>
         <label for="edit-name">Edite o nome:</label>

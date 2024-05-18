@@ -1,5 +1,5 @@
 lucide.createIcons();
-export { users, monthlySpending, selectProfile, typeOfDebtInputs, clearInputs, clearInputType };
+export { users, monthlySpending, selectProfile, typeOfDebtInputs, divBlur, registerNewUserForm, registerNewUserDialog, clearInputs, clearInputType };
 
 import { disableInputs } from "./disableInputs.js";
 import { navbarProfiles } from "./navbar/showNavbarProfiles.js";
@@ -10,6 +10,10 @@ const selectProfile = document.getElementById("select-profile");
 const formDebt = document.getElementById("form-debt");
 const inputTotal = document.querySelector(".input-parcelas");
 const typeOfDebtInputs = document.querySelectorAll('input[type="radio"]');
+
+const divBlur = document.getElementById("blur-div");
+const registerNewUserForm = document.getElementById("form-new-user");
+const registerNewUserDialog = document.getElementById("register-dialog");
 
 const users = [];
 const monthlySpending = [];
