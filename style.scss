@@ -53,7 +53,7 @@ nav {
     font-weight: 700;
   }
 
-  [data-lucide="chevrons-up-down"]{
+  [data-lucide="chevrons-up-down"] {
     color: var(--white-color);
     width: 1rem;
     height: 1rem;
@@ -116,7 +116,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 
   img {
     width: 1rem;
@@ -159,7 +159,8 @@ nav {
   }
 }
 
-.profile:hover ,.add-profile:hover{
+.profile:hover,
+.add-profile:hover {
   background-color: var(--border-color);
   border-radius: 5px;
 }
@@ -195,14 +196,14 @@ h1 {
   border-radius: 15px;
 }
 
-.value{
+.value {
   font-size: 1.8rem;
   font-weight: 800;
 }
 
-.subtext{
+.subtext {
   color: var(--gray);
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 400;
 }
 
@@ -216,8 +217,8 @@ h1 {
     font-weight: 600;
   }
 
-  span{
-    font-size: .8rem;
+  span {
+    font-size: 0.8rem;
     font-weight: 500;
   }
 
@@ -292,7 +293,7 @@ h1 {
     font-size: 0.9rem;
   }
 
-  #debt-value{
+  #debt-value {
     appearance: textfield;
   }
 }
@@ -302,12 +303,12 @@ h1 {
 #btn-register-new-debt:disabled,
 .input-parcelas input:disabled,
 .debt-radio-selection input[type="radio"]:disabled,
-input[type="submit"]:disabled{
-  opacity: .5;
+input[type="submit"]:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.debt-type{
+.debt-type {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -317,7 +318,7 @@ input[type="submit"]:disabled{
   color: var(--white-color);
 }
 
-.debt-radio-selection{
+.debt-radio-selection {
   display: flex;
   flex-direction: row;
   gap: 15px;
@@ -325,7 +326,7 @@ input[type="submit"]:disabled{
 
   color: var(--white-color);
 
-  input[type="radio"]{
+  input[type="radio"] {
     appearance: none;
 
     border: 1px solid var(--white-color);
@@ -335,13 +336,12 @@ input[type="submit"]:disabled{
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 
     cursor: pointer;
   }
-  
-  
-  input[type="radio"]::before{
+
+  input[type="radio"]::before {
     content: "";
     background-color: var(--white-color);
     width: 50%;
@@ -351,16 +351,16 @@ input[type="submit"]:disabled{
     opacity: 0;
     transition: all 100ms ease-in-out;
   }
-  
-  input[type="radio"]:disabled::before{
-    opacity: 0  !important;
+
+  input[type="radio"]:disabled::before {
+    opacity: 0 !important;
   }
 
-  input[type="radio"]:checked::before{
+  input[type="radio"]:checked::before {
     opacity: 1;
   }
 
-  div{
+  div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -368,16 +368,16 @@ input[type="submit"]:disabled{
   }
 }
 
-.debt-radio-selection:has(input[type="radio"]:disabled) label{
+.debt-radio-selection:has(input[type="radio"]:disabled) label {
   cursor: not-allowed;
 }
 
-.input-parcelas{
+.input-parcelas {
   width: 40%;
   display: none;
   flex-direction: column;
 
-  input{
+  input {
     appearance: textfield;
     background-color: transparent;
     color: var(--white-color);
@@ -389,7 +389,7 @@ input[type="submit"]:disabled{
   }
 }
 
-.input-parcelas:has(input:disabled) label{
+.input-parcelas:has(input:disabled) label {
   cursor: not-allowed;
 }
 
@@ -413,6 +413,7 @@ input[type="submit"]:hover {
 .payments-history {
   width: 40%;
   height: 100%;
+  max-height: 100%;
   border: 1px solid var(--border-color);
   border-radius: 10px;
 
@@ -422,33 +423,45 @@ input[type="submit"]:hover {
   gap: 30px;
   padding: 2rem;
 
-  h2{
+  h2 {
     color: var(--white-color);
   }
 }
 
-.payments-list{
+.payments-list {
   width: 100%;
+  max-height: 26rem;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow-y: auto;
+
+  scrollbar-color: var(--gray);
 }
 
-.payment{
+.payments-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.payments-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.payments-list::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 20px;
+}
+
+.payment {
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  padding: 2.2rem 1.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.crud-icon{
-  color: var(--white-color);
-  cursor: pointer;
-}
-
-.payment-name{
+.payment-name {
   color: var(--white-color);
   font-size: 1.5rem;
   font-weight: 500;
@@ -456,34 +469,33 @@ input[type="submit"]:hover {
   align-items: center;
 }
 
-.payment-infos{
+.payment-infos {
   width: 70%;
   display: flex;
   flex-direction: column;
-  gap: .8rem;
-  
-  span{
+  gap: 0.8rem;
+
+  span {
     color: var(--white-color);
   }
 }
 
-.payment-value{
-  font-size: .9rem;
+.payment-value {
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-.payment-installments{
+.payment-installments {
   font-weight: 400;
 }
 
-.icon{
+.icon {
   width: 20px;
   height: 20px;
-  color: var(--white-color);
   cursor: pointer;
 }
 
-.dialogs{
+.dialogs {
   width: 40%;
   height: 50%;
   position: absolute;
@@ -496,15 +508,15 @@ input[type="submit"]:hover {
   align-items: center;
   justify-content: center;
 
-  background-color: #09090B;
+  background-color: #09090b;
   border-radius: 10px;
   border: 1px solid var(--border-color);
 
-  h2{
+  h2 {
     color: var(--white-color);
   }
 
-  [data-lucide="x"]{
+  [data-lucide="x"] {
     color: var(--white-color);
     height: 32px;
     width: 32px;
@@ -516,23 +528,23 @@ input[type="submit"]:hover {
     cursor: pointer;
   }
 
-  [data-lucide="x"]:hover{
+  [data-lucide="x"]:hover {
     color: #e0e0e0;
   }
 
-  form{
+  form {
     display: flex;
     flex-direction: column;
     padding-top: 35px;
     gap: 20px;
     width: 55%;
 
-    label{
+    label {
       color: var(--white-color);
       font-size: 1.2rem;
     }
 
-    input{
+    input {
       height: 35px;
       background-color: transparent;
       border: 1px solid var(--border-color);
@@ -540,73 +552,79 @@ input[type="submit"]:hover {
       padding-left: 10px;
     }
 
-    input:focus{
+    input:focus {
       border: 1px solid var(--white-color);
     }
 
-    input[type="submit"], button{
+    input[type="submit"],
+    button {
       padding: 8px 16px;
-      border-radius: .5rem;
+      border-radius: 0.5rem;
       border: none;
 
       font-weight: 500;
       font-size: 1rem;
       cursor: pointer;
     }
-    
-    input[type="submit"]{
+
+    input[type="submit"] {
       background-color: var(--white-color);
-      color: #09090B;
+      color: #09090b;
     }
 
-    button{
-      background-color: #BF2601;
+    button {
+      background-color: #832021;
       color: var(--white-color);
     }
 
-    input[type="submit"]:hover{
+    input[type="submit"]:hover {
       background-color: #e0e0e0;
     }
 
-    input[type="number"]{
+    input[type="number"] {
       appearance: textfield;
     }
   }
 }
 
-.edit-values{
+#payment-edit-dialog form {
+  width: 70%;
+}
+
+.edit-values {
   display: flex;
   gap: 15px;
 }
 
-.edit-value, .edit-installments{
+.edit-value,
+.edit-installments {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.edit-value{
+.edit-value {
   flex: 1;
 }
 
-.edit-installments{
+.edit-installments {
   width: 50%;
 }
 
-.edit-btns{
+.edit-btns {
   display: flex;
   justify-content: center;
   gap: 1.3rem;
 }
 
-.register-dialog-active{
+.register-dialog-active {
   display: flex;
 }
 
-.blur{
+.blur {
   width: 100%;
   height: 100%;
   position: absolute;
   background-color: #000000;
-  opacity: .9;
+  opacity: 0.9;
 }

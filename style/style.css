@@ -148,7 +148,8 @@ nav {
   color: #fafafa;
 }
 
-.profile:hover, .add-profile:hover {
+.profile:hover,
+.add-profile:hover {
   background-color: var(--border-color);
   border-radius: 5px;
 }
@@ -376,6 +377,7 @@ input[type=submit]:hover {
 .payments-history {
   width: 40%;
   height: 100%;
+  max-height: 100%;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   display: flex;
@@ -390,23 +392,34 @@ input[type=submit]:hover {
 
 .payments-list {
   width: 100%;
+  max-height: 26rem;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  overflow-y: auto;
+  scrollbar-color: var(--gray);
+}
+
+.payments-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.payments-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.payments-list::-webkit-scrollbar-thumb {
+  background-color: var(--gray);
+  border-radius: 20px;
 }
 
 .payment {
   border: 1px solid var(--border-color);
   border-radius: 1rem;
-  padding: 2.2rem 1.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.crud-icon {
-  color: var(--white-color);
-  cursor: pointer;
 }
 
 .payment-name {
@@ -439,7 +452,6 @@ input[type=submit]:hover {
 .icon {
   width: 20px;
   height: 20px;
-  color: var(--white-color);
   cursor: pointer;
 }
 
@@ -454,7 +466,7 @@ input[type=submit]:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #09090B;
+  background-color: #09090b;
   border-radius: 10px;
   border: 1px solid var(--border-color);
 }
@@ -494,7 +506,8 @@ input[type=submit]:hover {
 .dialogs form input:focus {
   border: 1px solid var(--white-color);
 }
-.dialogs form input[type=submit], .dialogs form button {
+.dialogs form input[type=submit],
+.dialogs form button {
   padding: 8px 16px;
   border-radius: 0.5rem;
   border: none;
@@ -504,10 +517,10 @@ input[type=submit]:hover {
 }
 .dialogs form input[type=submit] {
   background-color: var(--white-color);
-  color: #09090B;
+  color: #09090b;
 }
 .dialogs form button {
-  background-color: #BF2601;
+  background-color: #832021;
   color: var(--white-color);
 }
 .dialogs form input[type=submit]:hover {
@@ -517,12 +530,17 @@ input[type=submit]:hover {
   appearance: textfield;
 }
 
+#payment-edit-dialog form {
+  width: 70%;
+}
+
 .edit-values {
   display: flex;
   gap: 15px;
 }
 
-.edit-value, .edit-installments {
+.edit-value,
+.edit-installments {
   display: flex;
   flex-direction: column;
   gap: 20px;
