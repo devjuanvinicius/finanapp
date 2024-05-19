@@ -596,8 +596,7 @@ input[type="submit"]:hover {
   gap: 15px;
 }
 
-.edit-value,
-.edit-installments {
+.edit-value {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -605,10 +604,6 @@ input[type="submit"]:hover {
 
 .edit-value {
   flex: 1;
-}
-
-.edit-installments {
-  width: 50%;
 }
 
 .edit-btns {

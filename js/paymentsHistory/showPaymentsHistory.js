@@ -32,7 +32,7 @@ export function showPaymentsHistory(user) {
     penLineIcon.classList.add("icon");
 
     paymentName.innerText = item.name;
-    paymentValue.innerText = numberFormater(item.value);
+    paymentValue.innerText = `${numberFormater(item.value)} - ${item.installments}x`;
     penLineIcon.dataset.index = index;
 
     paymentInfos.append(paymentName, paymentValue);
