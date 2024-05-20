@@ -18,14 +18,108 @@ body {
   height: 100vh;
 }
 
+.btn {
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-default {
+  color: #09090b;
+  background-color: var(--white-color);
+}
+
+.btn-default:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-remove {
+  background-color: #832021;
+  color: var(--white-color);
+}
+
+.active {
+  display: flex !important;
+}
+
+.dialogs {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #09090b;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+.dialogs h2 {
+  color: var(--white-color);
+}
+.dialogs [data-lucide=x] {
+  color: var(--white-color);
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+.dialogs [data-lucide=x]:hover {
+  color: #e0e0e0;
+}
+.dialogs form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 35px;
+  gap: 20px;
+  width: 55%;
+}
+.dialogs form label {
+  color: var(--white-color);
+  font-size: 1.2rem;
+}
+.dialogs form input[type=text], .dialogs form input[type=number] {
+  height: 35px;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--white-color);
+  padding-left: 10px;
+}
+.dialogs form input:focus {
+  border: 1px solid var(--white-color);
+}
+.dialogs form input[type=submit],
+.dialogs form button {
+  padding: 8px 16px;
+  border-radius: 0.5rem;
+}
+.dialogs form input[type=number] {
+  appearance: textfield;
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #000000;
+  opacity: 0.9;
+}
+
 nav {
   width: 100%;
   height: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 20px;
-
+  justify-content: space-between;
+  padding: 0 20px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -44,20 +138,17 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 10px 15px;
-
   border: 1px solid var(--border-color);
   border-radius: 10px;
-
-  span {
-    color: var(--white-color);
-    font-weight: 700;
-  }
-
-  [data-lucide="chevrons-up-down"] {
-    color: var(--white-color);
-    width: 1rem;
-    height: 1rem;
-  }
+}
+.select-profile span {
+  color: var(--white-color);
+  font-weight: 700;
+}
+.select-profile [data-lucide=chevrons-up-down] {
+  color: var(--white-color);
+  width: 1rem;
+  height: 1rem;
 }
 
 .select-profile:hover {
@@ -78,28 +169,20 @@ nav {
   display: none;
   flex-direction: column;
   gap: 10px;
-
   border: 1px solid var(--border-color);
   border-radius: 10px;
-
   position: absolute;
   top: 50px;
-
-  h3 {
-    color: var(--gray);
-    margin: 0 15px;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  hr {
-    width: 100%;
-    color: var(--border-color);
-  }
 }
-
-.active {
-  display: flex !important;
+.profile-options h3 {
+  color: var(--gray);
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.profile-options hr {
+  width: 100%;
+  color: var(--border-color);
 }
 
 .profiles {
@@ -117,23 +200,21 @@ nav {
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-
-  img {
-    width: 1rem;
-    height: 1rem;
-    display: none;
-  }
+}
+.profile img {
+  width: 1rem;
+  height: 1rem;
+  display: none;
 }
 
 .selected-profile {
   background-color: var(--border-color);
   border-radius: 5px;
-
-  img {
-    width: 1rem;
-    height: 1rem;
-    display: block;
-  }
+}
+.selected-profile img {
+  width: 1rem;
+  height: 1rem;
+  display: block;
 }
 
 .selected-profile-clicked {
@@ -151,12 +232,11 @@ nav {
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
-
-  img {
-    width: 1.3rem;
-    height: 1.3rem;
-    color: #fafafa;
-  }
+}
+.add-profile img {
+  width: 1.3rem;
+  height: 1.3rem;
+  color: #fafafa;
 }
 
 .profile:hover,
@@ -182,6 +262,14 @@ h1 {
   margin: 25px 0;
 }
 
+.main-cards {
+  width: 100%;
+  height: 58vh;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
 .card {
   width: 25%;
   height: 180px;
@@ -191,7 +279,6 @@ h1 {
   gap: 15px;
   color: var(--white-color);
   padding: 0 25px;
-
   border: 1px solid var(--border-color);
   border-radius: 15px;
 }
@@ -211,30 +298,19 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  span {
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-
-  .icon-card {
-    color: var(--gray);
-    width: 1.2rem;
-    height: 1.2rem;
-  }
 }
-
-.main-cards {
-  width: 100%;
-  height: 58vh;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+.title h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.title span {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.title .icon-card {
+  color: var(--gray);
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .card-register-new-value {
@@ -245,20 +321,17 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 30px;
-
   border: 1px solid var(--border-color);
   border-radius: 10px;
-
-  h2 {
-    color: var(--white-color);
-  }
-
-  form {
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+}
+.card-register-new-value h2 {
+  color: var(--white-color);
+}
+.card-register-new-value form {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .debt-infos {
@@ -266,44 +339,38 @@ h1 {
   flex-direction: column;
   color: var(--white-color);
   gap: 8px;
-
-  label {
-    font-weight: 600;
-  }
-
-  input {
-    background-color: transparent;
-    padding: 10px;
-    color: var(--white-color);
-    padding: 10px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-  }
-
-  #debt-name:focus,
-  #debt-value:focus {
-    border: 1px solid var(--white-color);
-    outline: none;
-  }
-
-  #debt-name:placeholder-shown,
-  #debt-value:placeholder-shown {
-    color: hsl(var(--gray));
-    font-size: 0.9rem;
-  }
-
-  #debt-value {
-    appearance: textfield;
-  }
+}
+.debt-infos label {
+  font-weight: 600;
+}
+.debt-infos input {
+  background-color: transparent;
+  padding: 10px;
+  color: var(--white-color);
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+.debt-infos #debt-name:focus,
+.debt-infos #debt-value:focus {
+  border: 1px solid var(--white-color);
+  outline: none;
+}
+.debt-infos #debt-name:placeholder-shown,
+.debt-infos #debt-value:placeholder-shown {
+  color: hsl(var(--gray));
+  font-size: 0.9rem;
+}
+.debt-infos #debt-value {
+  appearance: textfield;
 }
 
 #debt-name:disabled,
 #debt-value:disabled,
 #btn-register-new-debt:disabled,
 .input-parcelas input:disabled,
-.debt-radio-selection input[type="radio"]:disabled,
-input[type="submit"]:disabled {
+.debt-radio-selection input[type=radio]:disabled,
+input[type=submit]:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -314,7 +381,6 @@ input[type="submit"]:disabled {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
   color: var(--white-color);
 }
 
@@ -323,52 +389,44 @@ input[type="submit"]:disabled {
   flex-direction: row;
   gap: 15px;
   width: 60%;
-
   color: var(--white-color);
-
-  input[type="radio"] {
-    appearance: none;
-
-    border: 1px solid var(--white-color);
-    padding: 1rem;
-    border-radius: 50%;
-    background-color: #09090b;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-  }
-
-  input[type="radio"]::before {
-    content: "";
-    background-color: var(--white-color);
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    position: absolute;
-    opacity: 0;
-    transition: all 100ms ease-in-out;
-  }
-
-  input[type="radio"]:disabled::before {
-    opacity: 0 !important;
-  }
-
-  input[type="radio"]:checked::before {
-    opacity: 1;
-  }
-
-  div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
+}
+.debt-radio-selection input[type=radio] {
+  appearance: none;
+  border: 1px solid var(--white-color);
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: #09090b;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.debt-radio-selection input[type=radio]::before {
+  content: "";
+  background-color: var(--white-color);
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  transition: all 100ms ease-in-out;
+}
+.debt-radio-selection input[type=radio]:disabled::before {
+  opacity: 0 !important;
+}
+.debt-radio-selection input[type=radio]:checked::before {
+  opacity: 1;
+}
+.debt-radio-selection div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-.debt-radio-selection:has(input[type="radio"]:disabled) label {
+.debt-radio-selection:has(input[type=radio]:disabled) label {
   cursor: not-allowed;
 }
 
@@ -376,38 +434,24 @@ input[type="submit"]:disabled {
   width: 40%;
   display: none;
   flex-direction: column;
-
-  input {
-    appearance: textfield;
-    background-color: transparent;
-    color: var(--white-color);
-    padding: 10px;
-    margin-top: 10px;
-
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-  }
+}
+.input-parcelas input {
+  appearance: textfield;
+  background-color: transparent;
+  color: var(--white-color);
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
 
 .input-parcelas:has(input:disabled) label {
   cursor: not-allowed;
 }
 
-input[type="submit"] {
-  background-color: var(--white-color);
-  outline: none;
+.btn-register-new-debt {
   padding: 10px 0;
-  color: var(--bg-color);
-  font-size: 1rem;
-  font-weight: 500;
-
-  border: none;
   border-radius: 5px;
-}
-
-input[type="submit"]:hover {
-  background-color: #fafafae1;
-  cursor: pointer;
 }
 
 .payments-history {
@@ -416,16 +460,14 @@ input[type="submit"]:hover {
   max-height: 100%;
   border: 1px solid var(--border-color);
   border-radius: 10px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
   padding: 2rem;
-
-  h2 {
-    color: var(--white-color);
-  }
+}
+.payments-history h2 {
+  color: var(--white-color);
 }
 
 .payments-list {
@@ -435,7 +477,6 @@ input[type="submit"]:hover {
   flex-direction: column;
   gap: 15px;
   overflow-y: auto;
-
   scrollbar-color: var(--gray);
 }
 
@@ -474,10 +515,9 @@ input[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
-
-  span {
-    color: var(--white-color);
-  }
+}
+.payment-infos span {
+  color: var(--white-color);
 }
 
 .payment-value {
@@ -493,98 +533,6 @@ input[type="submit"]:hover {
   width: 20px;
   height: 20px;
   cursor: pointer;
-}
-
-.dialogs {
-  width: 40%;
-  height: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #09090b;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-
-  h2 {
-    color: var(--white-color);
-  }
-
-  [data-lucide="x"] {
-    color: var(--white-color);
-    height: 32px;
-    width: 32px;
-
-    position: absolute;
-    top: 5%;
-    right: 5%;
-
-    cursor: pointer;
-  }
-
-  [data-lucide="x"]:hover {
-    color: #e0e0e0;
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    padding-top: 35px;
-    gap: 20px;
-    width: 55%;
-
-    label {
-      color: var(--white-color);
-      font-size: 1.2rem;
-    }
-
-    input {
-      height: 35px;
-      background-color: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--white-color);
-      padding-left: 10px;
-    }
-
-    input:focus {
-      border: 1px solid var(--white-color);
-    }
-
-    input[type="submit"],
-    button {
-      padding: 8px 16px;
-      border-radius: 0.5rem;
-      border: none;
-
-      font-weight: 500;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    input[type="submit"] {
-      background-color: var(--white-color);
-      color: #09090b;
-    }
-
-    button {
-      background-color: #832021;
-      color: var(--white-color);
-    }
-
-    input[type="submit"]:hover {
-      background-color: #e0e0e0;
-    }
-
-    input[type="number"] {
-      appearance: textfield;
-    }
-  }
 }
 
 #payment-edit-dialog form {
@@ -612,14 +560,4 @@ input[type="submit"]:hover {
   gap: 1.3rem;
 }
 
-.register-dialog-active {
-  display: flex;
-}
-
-.blur {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: #000000;
-  opacity: 0.9;
-}
+/*# sourceMappingURL=style.css.map */

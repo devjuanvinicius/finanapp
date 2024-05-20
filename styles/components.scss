@@ -1,0 +1,107 @@
+.btn{
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-default{
+  color: #09090b;
+  background-color: var(--white-color);
+}
+
+.btn-default:hover{
+  background-color: #e0e0e0;
+}
+
+.btn-remove {
+  background-color: #832021;
+  color: var(--white-color);
+}
+
+.active {
+  display: flex !important;
+}
+
+.dialogs {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #09090b;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+
+  h2 {
+    color: var(--white-color);
+  }
+
+  [data-lucide="x"] {
+    color: var(--white-color);
+    height: 32px;
+    width: 32px;
+
+    position: absolute;
+    top: 5%;
+    right: 5%;
+
+    cursor: pointer;
+  }
+
+  [data-lucide="x"]:hover {
+    color: #e0e0e0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 35px;
+    gap: 20px;
+    width: 55%;
+
+    label {
+      color: var(--white-color);
+      font-size: 1.2rem;
+    }
+
+    input[type="text"], input[type="number"] {
+      height: 35px;
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--white-color);
+      padding-left: 10px;
+    }
+
+    input:focus {
+      border: 1px solid var(--white-color);
+    }
+
+    input[type="submit"],
+    button {
+      padding: 8px 16px;
+      border-radius: 0.5rem;
+    }
+
+    
+    input[type="number"] {
+      appearance: textfield;
+    }
+  }
+}
+
+.blur {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #000000;
+  opacity: 0.9;
+}

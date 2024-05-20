@@ -1,0 +1,26 @@
+:root {
+  --bg-color: #09090b;
+  --border-color: hsl(240, 3.7%, 15.9%);
+  --white-color: #fafafa;
+  --gray: hsl(240 5% 64.9%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Inter";
+}
+
+body {
+  background-color: var(--bg-color);
+  height: 100vh;
+}
+
+@import "./components.scss";
+@import "./navbar.scss";
+@import "./main/main.scss";
+@import "./main/card.scss";
+@import "./main/debt-register.scss";
+@import "./main/payments-history.scss";

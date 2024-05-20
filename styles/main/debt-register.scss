@@ -1,0 +1,160 @@
+.card-register-new-value {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  h2 {
+    color: var(--white-color);
+  }
+
+  form {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.debt-infos {
+  display: flex;
+  flex-direction: column;
+  color: var(--white-color);
+  gap: 8px;
+
+  label {
+    font-weight: 600;
+  }
+
+  input {
+    background-color: transparent;
+    padding: 10px;
+    color: var(--white-color);
+    padding: 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+
+  #debt-name:focus,
+  #debt-value:focus {
+    border: 1px solid var(--white-color);
+    outline: none;
+  }
+
+  #debt-name:placeholder-shown,
+  #debt-value:placeholder-shown {
+    color: hsl(var(--gray));
+    font-size: 0.9rem;
+  }
+
+  #debt-value {
+    appearance: textfield;
+  }
+}
+
+#debt-name:disabled,
+#debt-value:disabled,
+#btn-register-new-debt:disabled,
+.input-parcelas input:disabled,
+.debt-radio-selection input[type="radio"]:disabled,
+input[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.debt-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  color: var(--white-color);
+}
+
+.debt-radio-selection {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 60%;
+
+  color: var(--white-color);
+
+  input[type="radio"] {
+    appearance: none;
+
+    border: 1px solid var(--white-color);
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: #09090b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    background-color: var(--white-color);
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 100ms ease-in-out;
+  }
+
+  input[type="radio"]:disabled::before {
+    opacity: 0 !important;
+  }
+
+  input[type="radio"]:checked::before {
+    opacity: 1;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.debt-radio-selection:has(input[type="radio"]:disabled) label {
+  cursor: not-allowed;
+}
+
+.input-parcelas {
+  width: 40%;
+  display: none;
+  flex-direction: column;
+
+  input {
+    appearance: textfield;
+    background-color: transparent;
+    color: var(--white-color);
+    padding: 10px;
+    margin-top: 10px;
+
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+  }
+}
+
+.input-parcelas:has(input:disabled) label {
+  cursor: not-allowed;
+}
+
+.btn-register-new-debt {
+  padding: 10px 0;
+  border-radius: 5px;
+}

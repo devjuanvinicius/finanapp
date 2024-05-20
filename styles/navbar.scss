@@ -1,0 +1,143 @@
+nav {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.select {
+  width: 13%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.select-profile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  span {
+    color: var(--white-color);
+    font-weight: 700;
+  }
+
+  [data-lucide="chevrons-up-down"] {
+    color: var(--white-color);
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.select-profile:hover {
+  background-color: var(--border-color);
+}
+
+.current-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-options {
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 15px 0 10px 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  position: absolute;
+  top: 50px;
+
+  h3 {
+    color: var(--gray);
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  hr {
+    width: 100%;
+    color: var(--border-color);
+  }
+}
+
+.profiles {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile {
+  color: var(--white-color);
+  margin: 0 5px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+
+  img {
+    width: 1rem;
+    height: 1rem;
+    display: none;
+  }
+}
+
+.selected-profile {
+  background-color: var(--border-color);
+  border-radius: 5px;
+
+  img {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+  }
+}
+
+.selected-profile-clicked {
+  border: 1px solid var(--white-color);
+}
+
+.add-profile {
+  background-color: transparent;
+  border: none;
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+
+  img {
+    width: 1.3rem;
+    height: 1.3rem;
+    color: #fafafa;
+  }
+}
+
+.profile:hover,
+.add-profile:hover {
+  background-color: var(--border-color);
+  border-radius: 5px;
+}

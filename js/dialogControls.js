@@ -6,13 +6,13 @@ export function deleteErrorMessage(form) {
 }
 
 export function closeDialog(dialog, blur) {
-  dialog.classList.remove("register-dialog-active");
+  dialog.classList.remove("active");
   blur.classList.remove("blur");
 
   disableInputs();
 }
 
 export function openDialog(dialog, blur) {
-  dialog.classList.add("register-dialog-active");
+  dialog.classList.add("active");
   blur.classList.add("blur");
 }

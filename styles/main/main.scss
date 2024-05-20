@@ -1,0 +1,24 @@
+main {
+  padding: 0 35px;
+  margin-top: 25px;
+}
+
+h1 {
+  color: var(--white-color);
+}
+
+.cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin: 25px 0;
+}
+
+.main-cards {
+  width: 100%;
+  height: 58vh;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
