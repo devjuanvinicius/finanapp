@@ -1,5 +1,6 @@
 import { monthlySpending } from "./app.js";
 import { findingId } from "./registerDebt/registerNewDebt.js";
+
 export function numberFormater(numberToFormat) {
   return Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -8,6 +9,7 @@ export function numberFormater(numberToFormat) {
 }
 
 export function showValuesInCard() {
+  console.log("Func chamada")
 
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
 

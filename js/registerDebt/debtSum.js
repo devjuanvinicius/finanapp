@@ -3,6 +3,7 @@ import { findingId } from "./registerNewDebt.js";
 
 export function debtSum() {
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
+  const userId = findingId(selectedProfile);
 
   let gastoMensalTotal = 0;
   let gastoFixo = 0;
@@ -10,24 +11,21 @@ export function debtSum() {
   let gastoMensalParcelado = 0;
   let noType = 0;
 
-  let { gastoMensal } = monthlySpending[findingId(selectedProfile)]
-
-  monthlySpending[findingId(selectedProfile)].gastos.forEach((gasto) => {
-    if(gasto.type === "parcelado"){
+  monthlySpending[userId].gastos.forEach((gasto) => {
+    if (gasto.type === "parcelado") {
       gastoMensalParcelado += gasto.installmentsValues;
       gastoParcelado += gasto.value;
-      gastoMensalTotal = gastoMensal + gastoMensalParcelado;
-    } else if(gasto.type === "fixed"){
-      gastoFixo += gasto.value;      
-      gastoMensalTotal = gastoMensal + gastoFixo;
-    } else{
+    } else if (gasto.type === "fixed") {
+      gastoFixo += gasto.value;
+    } else {
       noType += gasto.value;
-      gastoMensalTotal = gastoMensal + noType;
     }
   });
 
-  monthlySpending[findingId(selectedProfile)].gastoMensal = gastoMensalTotal;
-  monthlySpending[findingId(selectedProfile)].gastoFixo = gastoFixo;
-  monthlySpending[findingId(selectedProfile)].gastoParcelamento = gastoParcelado;
-  monthlySpending[findingId(selectedProfile)].gastoParcelamentoMes = gastoMensalParcelado;
+  gastoMensalTotal = gastoFixo + noType + gastoMensalParcelado;
+
+  monthlySpending[userId].gastoMensal = gastoMensalTotal;
+  monthlySpending[userId].gastoFixo = gastoFixo;
+  monthlySpending[userId].gastoParcelamento = gastoParcelado;
+  monthlySpending[userId].gastoParcelamentoMes = gastoMensalParcelado;
 }
