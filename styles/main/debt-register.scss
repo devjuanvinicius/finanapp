@@ -90,10 +90,10 @@ input[type="submit"]:disabled {
   input[type="radio"] {
     appearance: none;
 
-    border: 1px solid var(--white-color);
+    border: 1px solid var(--border-color);
     padding: 1rem;
     border-radius: 50%;
-    background-color: #09090b;
+    background-color: transparent;
     position: relative;
     display: flex;
     justify-content: center;
