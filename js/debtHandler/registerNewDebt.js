@@ -1,5 +1,5 @@
 import { monthlySpending, clearInputs, typeOfDebtInputs, clearInputType } from "../app.js";
-import { showPaymentsHistory } from "../paymentsHistory/showPaymentsHistory.js";
+import { showPaymentsHistory } from "../paymentHandler/showPaymentsHistory.js";
 import { showValuesInCard } from "../showValuesInCard.js";
 import { debtSum } from "./debtSum.js";
 
@@ -16,7 +16,7 @@ export function registerNewDebt(event) {
   const inputDebtName = document.getElementById("debt-name").value;
   let inputDebtValue = document.getElementById("debt-value").value;
   const totalInstallments = isNaN(parseFloat(document.getElementById("parcelas").value)) ? 0 : parseFloat(document.getElementById("parcelas").value); 
-  //! ^ Aqui meu input está retornando um valor em string, estou transformando ele em string e caso me retorne um NaN, eu vou cadastrar como 0.
+  //? ^ Aqui meu input está retornando um valor em string, estou transformando ele em string e caso me retorne um NaN, eu vou cadastrar como 0.
   
   let typeOfDebt = "noType"; // Por padrao ele vai ser sem nenhum tipo
 

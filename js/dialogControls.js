@@ -1,18 +1,28 @@
+import { createDialog } from "./components.js";
 import { disableInputs } from "./disableInputs.js";
 
-export function deleteErrorMessage(form) {
-  const existingErrorMessages = form.querySelectorAll("span");
-  existingErrorMessages.forEach((span) => span.remove());
+const nav = document.querySelector("nav");
+const divBlur = document.getElementById("blur-div");
+
+export function openDialog(typeOfDialog) {
+  const dialog = createDialog(typeOfDialog);
+
+  dialog.classList.add("active");
+  divBlur.classList.add("blur");
+
+  return dialog;
 }
 
-export function closeDialog(dialog, blur) {
+export function closeDialog(dialog) {
   dialog.classList.remove("active");
-  blur.classList.remove("blur");
+  divBlur.classList.remove("blur");
+
+  nav.removeChild(dialog);
 
   disableInputs();
 }
 
-export function openDialog(dialog, blur) {
-  dialog.classList.add("active");
-  blur.classList.add("blur");
+export function deleteErrorMessage(form) {
+  const existingErrorMessages = form.querySelectorAll("span");
+  existingErrorMessages.forEach((span) => span.remove());
 }

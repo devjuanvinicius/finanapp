@@ -1,4 +1,4 @@
-import { divBlur, monthlySpending } from "../app.js";
+import { monthlySpending } from "../app.js";
 import { closeDialog } from "../dialogControls.js";
 import { numberFormater } from "../showValuesInCard.js";
 import { editPayment } from "./editPayment.js";
@@ -52,6 +52,6 @@ export function showPaymentsHistory(user) {
   });
 
   paymentCloseIcon.addEventListener("click", () =>
-    closeDialog(paymentEditDialog, divBlur)
+    closeDialog(paymentEditDialog)
   );
 }

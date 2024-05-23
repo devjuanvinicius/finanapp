@@ -1,6 +1,6 @@
-import { divBlur, monthlySpending } from "../app.js";
+import { monthlySpending } from "../app.js";
 import { closeDialog } from "../dialogControls.js";
-import { debtSum } from "../registerDebt/debtSum.js";
+import { debtSum } from "../debtHandler/debtSum.js";
 import { showValuesInCard } from "../showValuesInCard.js";
 import { paymentEditDialog, showPaymentsHistory } from "./showPaymentsHistory.js";
 
@@ -22,5 +22,5 @@ export function editPayment(user, index) {
   debtSum();
   showPaymentsHistory(user);
   showValuesInCard();
-  closeDialog(paymentEditDialog, divBlur);
+  closeDialog(paymentEditDialog);
 }

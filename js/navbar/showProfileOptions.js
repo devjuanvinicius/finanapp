@@ -10,6 +10,8 @@ export function showProfileOptions() {
   selectContent.classList.toggle("active");
   selectProfile.classList.toggle("selected-profile-clicked");
 
+  selectValue.innerText = "Adicionar novo perfil";
+  
   selectItem.forEach((profile) => {
     profile.addEventListener("click", () => {
       selectValue.innerHTML = "";

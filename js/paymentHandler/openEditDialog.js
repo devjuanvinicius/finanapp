@@ -1,9 +1,8 @@
-import { divBlur } from "../app.js";
 import { openDialog } from "../dialogControls.js";
 import { nameEdited, valueEdited, paymentEditDialog } from "./showPaymentsHistory.js";
 
 export function openEditDialog(payment) {
-  openDialog(paymentEditDialog, divBlur);
+  openDialog(paymentEditDialog);
 
   const divEditValues = document.getElementById("edit-values");
 

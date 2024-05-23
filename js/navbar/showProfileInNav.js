@@ -1,19 +1,32 @@
 import { users } from "../app.js";
+import { openDialog } from "../dialogControls.js";
+import { editUser } from "./userHandler/editUser.js";
 
 export function showProfileInNav() {
   const profileList = document.getElementById("list-profiles");
 
   profileList.innerHTML = "";
-  users.map((user) => {
+
+  users.map((user, index) => {
     const userItem = document.createElement("li");
-    const iconCheck = document.createElement("img");
+    const iconEdit = document.createElement("img");
 
     userItem.innerText = user;
     userItem.dataset.user = user;
     userItem.classList.add("profile");
-    iconCheck.setAttribute("src", "./assets/icons/check.svg");
 
-    userItem.appendChild(iconCheck);
+    iconEdit.setAttribute("src", "./assets/icons/pencil-line.svg");
+
+    userItem.appendChild(iconEdit);
     profileList.appendChild(userItem);
+
+    iconEdit.addEventListener("click", () => {
+      const dialog = openDialog(index);
+
+      dialog.addEventListener("submit", (event) => { 
+        event.preventDefault();
+        editUser(index);
+      })
+    });
   });
 }

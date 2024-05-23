@@ -1,14 +1,16 @@
-import { divBlur, monthlySpending, registerNewUserDialog, registerNewUserForm, users } from "../../app.js";
+import { monthlySpending, users } from "../../app.js";
 import { showProfileInNav } from "../showProfileInNav.js";
 import { closeDialog, deleteErrorMessage } from "../../dialogControls.js";
 
-export function addProfile(event) {
-  event.preventDefault();
-
+export function addProfile() {
+  const navElement = document.querySelector("nav");
   const userName = document.getElementById("new-user").value;
   const salary = document.getElementById("user-salary").value;
   const salaryInput = document.getElementById("user-salary");
   const verifyUserInArray = users.indexOf(userName);
+  const registerNewUserForm = document.getElementById("form-new-user");
+  const registerNewUserDialog = document.getElementById("register-new-user"); 
+  //* ^ No editor, ele aparece que o valor nunca é lido, mas o código antes dele cria o dialog, desta forma, ele le sim.
 
   const usersData = {
     user: userName,
@@ -37,8 +39,9 @@ export function addProfile(event) {
   } else {
     users.push(userName);
     monthlySpending.push(usersData);
-    
-    closeDialog(registerNewUserDialog, divBlur);
+   
+    closeDialog(registerNewUserDialog);
     showProfileInNav();
+    // saveUsersData();
   }
 }

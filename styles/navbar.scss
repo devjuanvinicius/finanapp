@@ -83,6 +83,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  cursor: initial;
 }
 
 .profile {
@@ -107,9 +108,8 @@ nav {
   border-radius: 5px;
 
   img {
-    width: 1rem;
-    height: 1rem;
     display: block;
+    cursor: pointer;
   }
 }
 

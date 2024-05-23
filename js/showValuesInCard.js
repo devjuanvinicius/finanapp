@@ -1,5 +1,5 @@
 import { monthlySpending } from "./app.js";
-import { findingId } from "./registerDebt/registerNewDebt.js";
+import { findingId } from "./debtHandler/registerNewDebt.js";
 
 export function numberFormater(numberToFormat) {
   return Intl.NumberFormat("pt-BR", {
@@ -9,8 +9,6 @@ export function numberFormater(numberToFormat) {
 }
 
 export function showValuesInCard() {
-  console.log("Func chamada")
-
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
 
   const { salary, gastoMensal, gastoFixo, gastoParcelamento, gastoParcelamentoMes } = monthlySpending[findingId(selectedProfile)] 

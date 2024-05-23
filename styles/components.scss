@@ -45,7 +45,7 @@
     color: var(--white-color);
   }
 
-  [data-lucide="x"] {
+  .close-dialog {
     color: var(--white-color);
     height: 32px;
     width: 32px;
@@ -57,7 +57,7 @@
     cursor: pointer;
   }
 
-  [data-lucide="x"]:hover {
+  .close-dialog:hover {
     color: #e0e0e0;
   }
 
