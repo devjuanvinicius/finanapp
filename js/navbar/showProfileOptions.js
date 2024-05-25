@@ -11,7 +11,11 @@ export function showProfileOptions() {
   selectProfile.classList.toggle("selected-profile-clicked");
 
   selectValue.innerText = "Adicionar novo perfil";
-  
+
+  if(selectValue.dataset.user){
+    selectValue.innerText = selectValue.dataset.user;
+  }
+
   selectItem.forEach((profile) => {
     profile.addEventListener("click", () => {
       selectValue.innerHTML = "";

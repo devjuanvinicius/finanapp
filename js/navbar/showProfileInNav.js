@@ -1,6 +1,7 @@
 import { users } from "../app.js";
-import { openDialog } from "../dialogControls.js";
+import { closeDialog, openDialog } from "../dialogControls.js";
 import { editUser } from "./userHandler/editUser.js";
+import { navbarProfiles } from "./usernameInNav.js";
 
 export function showProfileInNav() {
   const profileList = document.getElementById("list-profiles");
@@ -25,7 +26,10 @@ export function showProfileInNav() {
 
       dialog.addEventListener("submit", (event) => { 
         event.preventDefault();
-        editUser(index);
+        editUser(index, event);
+        showProfileInNav();
+        navbarProfiles(); // novo
+        closeDialog(dialog);
       })
     });
   });
