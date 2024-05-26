@@ -1,16 +1,16 @@
+import { selectValue } from "../app.js";
+import { findingId } from "../debtHandler/registerNewDebt.js";
 import { disableInputs } from "../disableInputs.js";
+import { showPaymentsHistory } from "../paymentHandler/showPaymentsHistory.js";
 import { showValuesInCard } from "../showValuesInCard.js";
 
 export function showProfileOptions() {
   const selectContent = document.getElementById("profile-options");
-  const selectValue = document.querySelector(".current-profile span");
   const selectItem = document.querySelectorAll("li");
   const selectProfile = document.getElementById("select-profile");
 
   selectContent.classList.toggle("active");
   selectProfile.classList.toggle("selected-profile-clicked");
-
-  selectValue.innerText = "Adicionar novo perfil";
 
   if(selectValue.dataset.user){
     selectValue.innerText = selectValue.dataset.user;
@@ -18,6 +18,7 @@ export function showProfileOptions() {
 
   selectItem.forEach((profile) => {
     profile.addEventListener("click", () => {
+
       selectValue.innerHTML = "";
       selectValue.innerText = profile.innerText;
       selectValue.dataset.user = profile.dataset.user;
@@ -32,6 +33,7 @@ export function showProfileOptions() {
       profile.classList.add("selected-profile");
       disableInputs();
       showValuesInCard();
+      showPaymentsHistory(findingId(selectValue.dataset.user));
     });
   });
 }

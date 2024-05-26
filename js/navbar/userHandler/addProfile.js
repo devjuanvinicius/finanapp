@@ -1,4 +1,4 @@
-import { monthlySpending, saveUsersData, saveUsersInfos, users } from "../../app.js";
+import { monthlySpending, saveUsers, saveUsersData, users } from "../../app.js";
 import { showProfileInNav } from "../showProfileInNav.js";
 import { closeDialog, deleteErrorMessage } from "../../dialogControls.js";
 
@@ -41,7 +41,7 @@ export function addProfile() {
     
     closeDialog(registerNewUserDialog);
     showProfileInNav();
+    saveUsers();
     saveUsersData();
-    saveUsersInfos();
   }
 }

@@ -1,5 +1,5 @@
 lucide.createIcons();
-export { users, monthlySpending, selectProfile, typeOfDebtInputs, registerNewUserForm, registerNewUserDialog, clearInputs, clearInputType };
+export { users, monthlySpending, selectProfile, typeOfDebtInputs, registerNewUserForm, registerNewUserDialog, selectedProfile, selectValue, clearInputs, clearInputType };
 
 import { disableInputs } from "./disableInputs.js";
 import { navbarProfiles } from "./navbar/usernameInNav.js";
@@ -7,6 +7,9 @@ import { showProfileOptions } from "./navbar/showProfileOptions.js";
 import { registerNewDebt } from "./debtHandler/registerNewDebt.js";
 
 const selectProfile = document.getElementById("select-profile");
+const selectValue = document.querySelector(".current-profile span");
+
+const selectedProfile = document.getElementById("selected-profile").dataset.user; // Usado para verificar o profile inicial
 const formDebt = document.getElementById("form-debt");
 const inputTotal = document.querySelector(".input-parcelas");
 const typeOfDebtInputs = document.querySelectorAll('input[type="radio"]');
@@ -39,11 +42,11 @@ function clearInputType() {
 }
 
 
-export function saveUsersData(){
+export function saveUsers(){
   localStorage.setItem("@users", JSON.stringify(users));
 }
 
-export function saveUsersInfos(){
+export function saveUsersData(){
   localStorage.setItem("@infos", JSON.stringify(monthlySpending));
 }
 

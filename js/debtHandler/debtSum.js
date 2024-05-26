@@ -1,4 +1,4 @@
-import { monthlySpending } from "../app.js";
+import { monthlySpending, saveUsersData } from "../app.js";
 import { findingId } from "./registerNewDebt.js";
 
 export function debtSum() {
@@ -28,4 +28,7 @@ export function debtSum() {
   monthlySpending[userId].gastoFixo = gastoFixo;
   monthlySpending[userId].gastoParcelamento = gastoParcelado;
   monthlySpending[userId].gastoParcelamentoMes = gastoMensalParcelado;
+
+  saveUsersData();
+  console.log(monthlySpending);
 }
