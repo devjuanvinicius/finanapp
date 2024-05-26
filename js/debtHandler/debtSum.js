@@ -30,5 +30,4 @@ export function debtSum() {
   monthlySpending[userId].gastoParcelamentoMes = gastoMensalParcelado;
 
   saveUsersData();
-  console.log(monthlySpending);
 }

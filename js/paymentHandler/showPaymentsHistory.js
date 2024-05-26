@@ -1,6 +1,7 @@
 import { monthlySpending } from "../app.js";
 import { closeDialog } from "../dialogControls.js";
 import { numberFormater } from "../showValuesInCard.js";
+import { deletePayment } from "./deletePayment.js";
 import { editPayment } from "./editPayment.js";
 import { openEditDialog } from "./openEditDialog.js";
 
@@ -12,10 +13,27 @@ export const paymentList = document.getElementById("payments-list");
 
 export function showPaymentsHistory(user) {
   const formEditPayment = document.getElementById("form-edit-payment");
+  const paymentCloseIcon = document.getElementById("close-dialog");
+  const deleteBtn = document.getElementById("btn-remove");
 
   paymentList.innerHTML = "";
 
-  monthlySpending[user].gastos.map((item, index) => {
+  formEditPayment.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const index = formEditPayment.dataset.index;
+    editPayment(user, index);
+  });
+
+  deleteBtn.addEventListener("click", () => {
+    const index = deleteBtn.dataset.index;
+    deletePayment(user, index);
+  });
+
+  paymentCloseIcon.addEventListener("click", () => {
+    closeDialog(paymentEditDialog);
+  });
+
+  monthlySpending[user].gastos.forEach((item, index) => {
     const paymentDiv = document.createElement("div");
     const paymentInfos = document.createElement("div");
     const paymentName = document.createElement("span");
@@ -39,19 +57,11 @@ export function showPaymentsHistory(user) {
     paymentList.appendChild(paymentDiv);
     
     penLineIcon.addEventListener("click", () => {
-      const paymentCloseIcon = document.getElementById("close-dialog");
       const payment = monthlySpending[user].gastos[index];
       openEditDialog(payment);
 
-      formEditPayment.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        editPayment(user, index);
-      });
-
-      paymentCloseIcon.addEventListener("click", () =>{
-        closeDialog(paymentEditDialog)}
-      );
+      formEditPayment.dataset.index = index;
+      deleteBtn.dataset.index = index;
     });
   });
 }
