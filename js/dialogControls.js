@@ -17,7 +17,9 @@ export function closeDialog(dialog) {
   dialog.classList.remove("active");
   divBlur.classList.remove("blur");
 
-  nav.removeChild(dialog);
+  if(dialog.id !== "payment-edit-dialog"){
+    nav.removeChild(dialog);
+  }
 
   disableInputs();
 }

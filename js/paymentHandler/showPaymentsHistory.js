@@ -11,7 +11,6 @@ export const installmentsEdited = document.getElementById("edit-installments");
 export const paymentList = document.getElementById("payments-list");
 
 export function showPaymentsHistory(user) {
-  const paymentCloseIcon = document.getElementById("close-edit-dialog");
   const formEditPayment = document.getElementById("form-edit-payment");
 
   paymentList.innerHTML = "";
@@ -38,8 +37,9 @@ export function showPaymentsHistory(user) {
     paymentInfos.append(paymentName, paymentValue);
     paymentDiv.append(paymentInfos, penLineIcon);
     paymentList.appendChild(paymentDiv);
-
+    
     penLineIcon.addEventListener("click", () => {
+      const paymentCloseIcon = document.getElementById("close-dialog");
       const payment = monthlySpending[user].gastos[index];
       openEditDialog(payment);
 
@@ -48,10 +48,10 @@ export function showPaymentsHistory(user) {
 
         editPayment(user, index);
       });
+
+      paymentCloseIcon.addEventListener("click", () =>{
+        closeDialog(paymentEditDialog)}
+      );
     });
   });
-
-  paymentCloseIcon.addEventListener("click", () =>
-    closeDialog(paymentEditDialog)
-  );
 }

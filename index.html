@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FinanTrack</title>
+  
   <link rel="stylesheet" href="./css/style.css">
   <link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <script src="//cdn.jsdelivr.net/npm/vanilla-masker@1.1.1/lib/vanilla-masker.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="./js/app.js" defer type="module" ></script>
 </head>
@@ -92,7 +95,7 @@
 
           <div class="debt-infos">
             <label for="debt-value">Valor da divida</label>
-            <input type="number" id="debt-value" placeholder="R$ 540,00" class="debt-value" required>
+            <input type="text" id="debt-value" placeholder="R$ 540,00" class="debt-value" required>
           </div>
 
           <div class="debt-type">
@@ -127,7 +130,7 @@
     <div class="dialogs" id="payment-edit-dialog">
       <h2>Edição de pagamentos</h2>
 
-      <i data-lucide="x" id="close-edit-dialog"></i>
+      <i data-lucide="x" id="close-dialog" class="close-dialog"></i>
 
       <form id="form-edit-payment">
         <label for="edit-name">Edite o nome:</label>
@@ -136,7 +139,7 @@
         <div class="edit-values" id="edit-values">
           <div class="edit-value">
             <label for="edit-value">Edite o valor:</label>
-            <input type="number" id="edit-value">
+            <input type="text" id="edit-value">
           </div>
         </div>
 

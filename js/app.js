@@ -14,8 +14,8 @@ const typeOfDebtInputs = document.querySelectorAll('input[type="radio"]');
 const registerNewUserForm = document.getElementById("form-new-user");
 const registerNewUserDialog = document.getElementById("register-dialog");
 
-const users = [];
-const monthlySpending = [];
+const users = JSON.parse(localStorage.getItem("@users")) || [];
+const monthlySpending = JSON.parse(localStorage.getItem("@infos")) || [];
 
 function clearInputs() {
   document.getElementById("debt-name").value = "";
@@ -39,9 +39,13 @@ function clearInputType() {
 }
 
 
-// export function saveUsersData(){
-//   localStorage.setItem("@users", JSON.stringify(users));
-// }
+export function saveUsersData(){
+  localStorage.setItem("@users", JSON.stringify(users));
+}
+
+export function saveUsersInfos(){
+  localStorage.setItem("@infos", JSON.stringify(monthlySpending));
+}
 
 clearInputs();
 disableInputs();

@@ -6,17 +6,15 @@ import { paymentEditDialog, showPaymentsHistory } from "./showPaymentsHistory.js
 
 export function editPayment(user, index) {
   const nameEdited = document.getElementById("edit-name").value;
-  const valueEdited = parseFloat(document.getElementById("edit-value").value);
+  const valueEdited = VMasker.toNumber(document.getElementById("edit-value").value);
   let installmentsEdited = monthlySpending[user].gastos[index].installments;
 
   if (document.getElementById("edit-installments") !== null) {
-    installmentsEdited = parseFloat(
-      document.getElementById("edit-installments").value
-    );
+    installmentsEdited = parseFloat(document.getElementById("edit-installments").value);
   }
 
   monthlySpending[user].gastos[index].name = nameEdited;
-  monthlySpending[user].gastos[index].value = valueEdited;
+  monthlySpending[user].gastos[index].value = parseFloat(valueEdited);
   monthlySpending[user].gastos[index].installments = installmentsEdited;
 
   debtSum();

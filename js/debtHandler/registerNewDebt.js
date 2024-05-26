@@ -14,7 +14,7 @@ export function registerNewDebt(event) {
 
   const selectedProfile = document.getElementById("selected-profile").dataset.user;
   const inputDebtName = document.getElementById("debt-name").value;
-  let inputDebtValue = document.getElementById("debt-value").value;
+  let inputDebtValue = VMasker.toNumber(document.getElementById("debt-value").value);
   const totalInstallments = isNaN(parseFloat(document.getElementById("parcelas").value)) ? 0 : parseFloat(document.getElementById("parcelas").value); 
   //? ^ Aqui meu input está retornando um valor em string, estou transformando ele em string e caso me retorne um NaN, eu vou cadastrar como 0.
   

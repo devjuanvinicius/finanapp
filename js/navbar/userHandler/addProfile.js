@@ -1,11 +1,10 @@
-import { monthlySpending, users } from "../../app.js";
+import { monthlySpending, saveUsersData, saveUsersInfos, users } from "../../app.js";
 import { showProfileInNav } from "../showProfileInNav.js";
 import { closeDialog, deleteErrorMessage } from "../../dialogControls.js";
 
 export function addProfile() {
-  const navElement = document.querySelector("nav");
   const userName = document.getElementById("new-user").value;
-  const salary = document.getElementById("user-salary").value;
+  const salary = VMasker.toNumber(document.getElementById("user-salary").value);
   const salaryInput = document.getElementById("user-salary");
   const verifyUserInArray = users.indexOf(userName);
   const registerNewUserForm = document.getElementById("form-new-user");
@@ -14,7 +13,7 @@ export function addProfile() {
 
   const usersData = {
     user: userName,
-    salary: salary,
+    salary: parseFloat(salary),
     gastos: [],
     gastoMensal: 0,
     gastoFixo: 0,
@@ -39,9 +38,10 @@ export function addProfile() {
   } else {
     users.push(userName);
     monthlySpending.push(usersData);
-   
+    
     closeDialog(registerNewUserDialog);
     showProfileInNav();
-    // saveUsersData();
+    saveUsersData();
+    saveUsersInfos();
   }
 }

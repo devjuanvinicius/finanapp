@@ -1,4 +1,5 @@
 import { users } from "./app.js";
+import { moneyMask } from "./moneyMask.js";
 
 export function disableInputs() {
   const inputDebtName = document.getElementById("debt-name");
@@ -30,6 +31,7 @@ export function disableInputs() {
     disable();
   } else {
     enable();
+    moneyMask(inputDebtValue);
   }
 }
 // TODO fazer uma fuction que toda vez que o usuario clica em um input, faz com que apareça um toast notification avisando que ele precisa selecionar um perfil antes de cadastra um novo valor

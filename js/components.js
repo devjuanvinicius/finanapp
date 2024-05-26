@@ -1,5 +1,6 @@
 import { closeDialog } from "./dialogControls.js";
 import { monthlySpending } from "./app.js";
+import { moneyMask } from "./moneyMask.js";
 
 export function createDialog(typeOrID) {
   const nav = document.querySelector("nav");
@@ -20,8 +21,7 @@ export function createDialog(typeOrID) {
   closeDialogIcon.id = "close-dialog";
   closeDialogIcon.classList.add("close-dialog");
 
-  inputUser.type = "text";
-  inputSalary.type = "number";
+  inputUser.type = inputSalary.type = "text";
 
   inputSubmit.type = "submit";
   inputSubmit.classList.add("btn", "btn-default");
@@ -63,7 +63,11 @@ export function createDialog(typeOrID) {
     inputUser.value = monthlySpending[typeOrID].user;
 
     inputSalary.id = "user-salary";
-    inputSalary.value = monthlySpending[typeOrID].salary;
+    inputSalary.value = new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+      maximumFractionDigits: 0
+    }).format(monthlySpending[typeOrID].salary);
 
     inputSubmit.value = "Editar";
   }
@@ -71,6 +75,10 @@ export function createDialog(typeOrID) {
   form.append(labelUser, inputUser, labelSalary, inputSalary, inputSubmit);
   dialog.append(dialogTitle, closeDialogIcon, form);
   nav.appendChild(dialog);
+
+  inputSalary.addEventListener("input", () => {
+    moneyMask(inputSalary);
+  });
 
   closeDialogIcon.addEventListener("click", () => {
     closeDialog(dialog);

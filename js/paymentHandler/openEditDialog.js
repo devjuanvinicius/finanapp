@@ -1,13 +1,21 @@
-import { openDialog } from "../dialogControls.js";
+import { moneyMask } from "../moneyMask.js";
 import { nameEdited, valueEdited, paymentEditDialog } from "./showPaymentsHistory.js";
 
 export function openEditDialog(payment) {
-  openDialog(paymentEditDialog);
-
   const divEditValues = document.getElementById("edit-values");
+  const divBlur = document.getElementById("blur-div");
+
+  paymentEditDialog.classList.add("active");
+  divBlur.classList.add("blur");
 
   nameEdited.value = payment.name;
-  valueEdited.value = payment.value;
+  valueEdited.value = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0
+  }).format(payment.value);
+
+  moneyMask(valueEdited);
 
   if (payment.type === "parcelado" && divEditValues.childElementCount === 1) {
     const editInstallments = document.createElement("div");
